@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+//This is to test the private branch
 
 public class MainActivity extends AppCompatActivity {
 
