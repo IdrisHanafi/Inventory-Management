@@ -1,0 +1,40 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.app.squad.scanner.ManagerScreen">
+    <item android:id="@+id/action_product"
+        android:title="@string/action_products"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/action_createproduct"
+                android:title="@string/action_createproduct"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+            <item android:id="@+id/action_deleteproduct"
+                android:title="@string/action_deleteproduct"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_reports"
+        android:title="@string/action_reports"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/action_listproduct"
+                android:title="@string/action_productlist"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+            <item android:id="@+id/action_costanalysis"
+                android:title="@string/action_costanalysis"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>
