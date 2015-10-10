@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
+    android:nestedScrollingEnabled="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Profile"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Name: "
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etFirstname"
+        tools:text="John Doe"
+        android:layout_width="371dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -20,6 +20,26 @@
             android:name=".Scan"
             android:label="@string/title_activity_scan" >
         </activity>
+        <activity
+            android:name=".ManagerScreen"
+            android:label="@string/title_activity_manager_screen" >
+        </activity>
+        <activity
+            android:name=".NormalUserScreen"
+            android:label="@string/title_activity_normal_user_screen" >
+        </activity>
+        <activity
+            android:name=".RegisterUserScreen"
+            android:label="@string/title_activity_register_user_screen" >
+        </activity>
+        <activity
+            android:name=".CreateProductScreen"
+            android:label="@string/title_activity_create_product_screen" >
+        </activity>
+        <activity
+            android:name=".CostAnalysisScreen"
+            android:label="@string/title_activity_cost_analysis_screen" >
+        </activity>
     </application>
 
 </manifest>

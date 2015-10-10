@@ -3,7 +3,18 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_products">Products Menu</string>
+    <string name="action_createproduct">Create Product</string>
+    <string name="action_deleteproduct">Delete Product</string>
+    <string name="action_reports">Reports Menu</string>
+    <string name="action_productlist">Product Lists Report</string>
+    <string name="action_costanalysis">Cost Analysis Report</string>
 
     <string name="scan">Scan</string>
     <string name="title_activity_scan">Scan</string>
+    <string name="title_activity_manager_screen">Manager</string>
+    <string name="title_activity_normal_user_screen">Normal User</string>
+    <string name="title_activity_register_user_screen">Register User</string>
+    <string name="title_activity_create_product_screen">Create Product</string>
+    <string name="title_activity_cost_analysis_screen">Cost Analysis</string>
 </resources>
