@@ -22,6 +22,7 @@
     <EditText
         android:layout_width="match_parent"
         android:id="@+id/etUsername"
+        android:hint="Username"
         android:layout_margin="10dp"
         android:layout_height="wrap_content" />
 
@@ -34,6 +35,7 @@
         android:layout_width="match_parent"
         android:id="@+id/etPassword"
         android:inputType="textPassword"
+        android:hint="Password"
         android:layout_margin="10dp"
         android:layout_height="wrap_content" />
 
@@ -43,6 +45,14 @@
         android:layout_margin="30dp"
         android:text="Login"
         android:layout_height="wrap_content" />
+
+    // delete all of this below after testing
+    <TextView
+        android:id="@+id/testTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_centerHorizontal="true" />
 
 
 </LinearLayout>
