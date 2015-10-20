@@ -35,6 +35,18 @@
             android:label="@string/title_activity_register_user_screen" >
         </activity>
         <activity
+            android:name=".AdminLanding"
+            android:label="@string/title_activity_admin_landing" >
+        </activity>
+        <activity
+            android:name=".ChangePasswordScreen"
+            android:label="@string/title_activity_change_password_screen" >
+        </activity>
+        <activity
+            android:name=".DeleteUserScreen"
+            android:label="@string/title_activity_delete_user_screen" >
+        </activity>
+        <activity
             android:name=".CreateProductScreen"
             android:label="@string/title_activity_create_product_screen" >
         </activity>

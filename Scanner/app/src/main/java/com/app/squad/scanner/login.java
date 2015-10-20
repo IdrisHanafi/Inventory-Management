@@ -47,7 +47,7 @@ public class login  extends AsyncTask<String, Void, String[]>  {
         try{
             this.userName = (String)arg0[0];
             this.userPassword = (String)arg0[1];
-            String link="http://10.65.30.167/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://192.168.1.132/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
@@ -88,9 +88,22 @@ public class login  extends AsyncTask<String, Void, String[]>  {
         Boolean compare = round3(hash);
 
         if (compare) {
-            Intent intent = new Intent(context,Scan.class)
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intent);
+            if (privlvl.matches("1")) {
+                Intent intent = new Intent(context, Scan.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+            } else if (privlvl.matches("2")){
+                Intent intent = new Intent(context, AdminLanding.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+
+            } else if (privlvl.matches("3")){
+
+            } else {
+                errAlert.setText("There is an error with your user account.  Please contact an administrator");
+            }
+
         }
         else{
             errAlert.setText("Invalid Username or Password");
