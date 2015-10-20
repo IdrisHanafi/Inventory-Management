@@ -48,7 +48,7 @@
 
     // delete all of this below after testing
     <TextView
-        android:id="@+id/testTxt"
+        android:id="@+id/errAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"

@@ -3,6 +3,7 @@ package com.app.squad.scanner;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,14 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 //This is to test the private branch
 
@@ -29,7 +22,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button bLogin;
     UserLocalStorage userLocalStore;
     EditText etUsername, etPassword;
-    private TextView testTxt;  // delete this
+    private TextView errAlert;  // delete this
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         // Grabs username and password
-        testTxt = (TextView) findViewById(R.id.testTxt);
+        errAlert = (TextView) findViewById(R.id.errAlert);
         String inputName = etUsername.getText().toString();
         String inputPass = etPassword.getText().toString();
 
@@ -84,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .setMessage("You Forgot to Enter your Username or Password")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {}
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
@@ -92,32 +88,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (v.getId()) {
                 case R.id.bLogin:
-                    testTxt.setText("Hash: " + bin2hex(getHash(inputPass)));
+                    new login(this, errAlert).execute(inputName, inputPass);
+                    //startActivity(new Intent(this, Scan.class));
                     break;
 
             } // end switch statement
 
         } // end if/else
-    }
 
 
-        // converts the password string to SHA-256
-        public byte[] getHash(String password){
-            MessageDigest digest = null;
-            try {
-                digest = MessageDigest.getInstance("Sha-256");
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
-            }
-                digest.reset();
-            return digest.digest(password.getBytes());
-
-        }
-    // converts the binary SHA-256 to hex data
-    static String bin2hex(byte[] data){
-        return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
-    }
-
+}
 
 
 }
