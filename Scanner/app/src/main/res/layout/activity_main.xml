@@ -3,21 +3,22 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:gravity="center"
     android:layout_width="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/greyWhiteTransition">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="You must be registered to use this application"
-        android:layout_gravity="center_horizontal"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.13"
-        android:textColor="#90b6ff" />
+    <ImageView
+        android:layout_width="125dp"
+        android:layout_height="99dp"
+        android:src="@drawable/barcode"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Username"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="match_parent"
@@ -29,7 +30,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Password"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.06" />
 
     <EditText
         android:layout_width="match_parent"
@@ -44,7 +46,9 @@
         android:id="@+id/bLogin"
         android:layout_margin="30dp"
         android:text="Login"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
 
     // delete all of this below after testing
     <TextView
@@ -53,6 +57,13 @@
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="You must be registered to use this application"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:textColor="#90b6ff"/>
 
 
 </LinearLayout>

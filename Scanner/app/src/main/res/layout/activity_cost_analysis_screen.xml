@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:background="#eeffee"
+    android:background="@drawable/greyWhiteTransition"
     android:nestedScrollingEnabled="true">
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Cost Analysis Report"
         android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
 
     <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="365dp"
@@ -217,6 +218,8 @@
         android:id="@+id/bOK"
         android:text="OK"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

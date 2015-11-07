@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:background="#eeffee"
+    android:background="@drawable/greyWhiteTransition"
     android:nestedScrollingEnabled="true">
 
     <TextView
@@ -76,6 +76,8 @@
         android:id="@+id/bRegister"
         android:text="Register"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>
