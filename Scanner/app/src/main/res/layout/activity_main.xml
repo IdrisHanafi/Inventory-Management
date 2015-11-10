@@ -5,8 +5,7 @@
     android:padding="10dp"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:weightSum="1"
-    android:background="@drawable/greyWhiteTransition">
+    android:weightSum="1">
 
     <ImageView
         android:layout_width="125dp"
