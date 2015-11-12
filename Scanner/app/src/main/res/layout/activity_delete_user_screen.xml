@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
+    android:nestedScrollingEnabled="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="UnRegister a User"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:id="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Enter Username"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etDeleteUser"
+        android:layout_width="371dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bDeleteUser"
+        android:text="UnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/etDeleteUser"
+        android:layout_alignParentLeft="true" />
+</LinearLayout>

@@ -64,5 +64,11 @@
         android:layout_weight="0.05"
         android:textColor="#90b6ff"/>
 
+    <TextView
+        android:id="@+id/errAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:layout_centerHorizontal="true" />
 
 </LinearLayout>
