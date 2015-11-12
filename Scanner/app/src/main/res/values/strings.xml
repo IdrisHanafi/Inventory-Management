@@ -17,4 +17,7 @@
     <string name="title_activity_register_user_screen">Register User</string>
     <string name="title_activity_create_product_screen">Create Product</string>
     <string name="title_activity_cost_analysis_screen">Cost Analysis</string>
+    <string name="title_activity_admin_landing">Administrator Landing Page</string>
+    <string name="title_activity_change_password_screen">Change Password</string>
+    <string name="title_activity_delete_user_screen">Delete User</string>
 </resources>

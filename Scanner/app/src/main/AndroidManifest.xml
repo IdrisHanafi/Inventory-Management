@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.squad.scanner" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,6 +33,18 @@
         <activity
             android:name=".RegisterUserScreen"
             android:label="@string/title_activity_register_user_screen" >
+        </activity>
+        <activity
+            android:name=".AdminLanding"
+            android:label="@string/title_activity_admin_landing" >
+        </activity>
+        <activity
+            android:name=".ChangePasswordScreen"
+            android:label="@string/title_activity_change_password_screen" >
+        </activity>
+        <activity
+            android:name=".DeleteUserScreen"
+            android:label="@string/title_activity_delete_user_screen" >
         </activity>
         <activity
             android:name=".CreateProductScreen"
