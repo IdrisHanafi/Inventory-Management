@@ -47,7 +47,7 @@ public class login  extends AsyncTask<String, Void, String[]>  {
         try{
             this.userName = (String)arg0[0];
             this.userPassword = (String)arg0[1];
-            String link="http://192.168.1.132/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://192.168.1.126/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
@@ -88,18 +88,19 @@ public class login  extends AsyncTask<String, Void, String[]>  {
         Boolean compare = round3(hash);
 
         if (compare) {
-            if (privlvl.matches("1")) {
+            if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
                 Intent intent = new Intent(context, Scan.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
 
             } else if (privlvl.matches("2")){
+                // This should activate the manager's landing page
+
+
+            } else if (privlvl.matches("3")){ // this is for the Admin's landing page
                 Intent intent = new Intent(context, AdminLanding.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
-
-            } else if (privlvl.matches("3")){
-
             } else {
                 errAlert.setText("There is an error with your user account.  Please contact an administrator");
             }
@@ -146,4 +147,3 @@ public class login  extends AsyncTask<String, Void, String[]>  {
         return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
     }
 }
-

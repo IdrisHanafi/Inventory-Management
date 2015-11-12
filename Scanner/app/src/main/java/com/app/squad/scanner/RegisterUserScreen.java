@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 public class RegisterUserScreen extends AppCompatActivity implements View.OnClickListener {
@@ -18,7 +22,7 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
     EditText etFirstname, etLastname,etUsername,etPassword,etConfirmPassword;
     String newSalt;
     CheckBox chkManager;
-    Integer newPriv;
+    String newPriv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +50,17 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
         String newFirstName = etFirstname.getText().toString();
         String newPassword = etPassword.getText().toString();
         String newConfirmPass = etConfirmPassword.getText().toString();
-        newSalt = createSalt();
+
+
+        String newSalt = createSalt();
+        String hashWord = bin2hex(getHash(newSalt + newPassword));
+
         if (chkManager.isChecked()){
-            newPriv = 2;
+            newPriv = "2";
         } else{
-            newPriv = 1;
+            newPriv = "1";
         }
+
 
         if (newUserName.matches("") || newFirstName.matches("") || newLastName.matches("") || newPassword.matches("") || newConfirmPass.matches("")){
             new AlertDialog.Builder(this)
@@ -79,7 +88,8 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
 
             switch (v.getId()) {
                 case R.id.bRegister:
-
+                    Log.i("Everything", newFirstName+ newLastName+ newUserName+ newSalt+  hashWord+ newPriv);
+                    new CreateUserActivity(this).execute(newFirstName, newLastName, newUserName, newSalt,  hashWord, newPriv);
                     break;
 
             } // end switch statement
@@ -98,4 +108,23 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
             sb.append(ALLOWED_CHARACTERS.charAt(random.nextInt(ALLOWED_CHARACTERS.length())));
         return sb.toString();
     }
+
+    // converts the password string to SHA-256 (output is in binary)
+    public byte[] getHash(String password){
+        MessageDigest digest = null;
+        try {
+            digest = MessageDigest.getInstance("Sha-256");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        digest.reset();
+        return digest.digest(password.getBytes());
+
+    }
+
+    // converts the binary from getHash() to hex
+    static String bin2hex(byte[] data){
+        return String.format("%0" + (data.length * 2) + "X", new BigInteger(1, data));
+    }
 }
+

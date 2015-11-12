@@ -20,12 +20,16 @@ public class DeleteUserScreen extends AppCompatActivity implements View.OnClickL
         bDeleteUser.setOnClickListener(this);
 
 
+
+
     }
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.bLogin:
 
+        String userName = etDeleteUser.getText().toString();
+        switch (v.getId()) {
+            case R.id.bDeleteUser:
+                new DeleteUserActivity(this).execute(userName);
                 break;
 
         } // end switch statement
