@@ -47,7 +47,7 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
             this.userName = (String)arg0[0];
             this.newSalt = (String)arg0[1];
             this.hashWord = (String)arg0[2];
-            String link="http://192.168.1.126/ChangePassword.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://54.69.210.120/ChangePassword.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             data  += "&" +URLEncoder.encode("newSalt", "UTF-8") + "=" + URLEncoder.encode(newSalt, "UTF-8");
             data  += "&" +URLEncoder.encode("hashWord", "UTF-8") + "=" + URLEncoder.encode(hashWord, "UTF-8");

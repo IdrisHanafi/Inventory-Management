@@ -52,7 +52,7 @@ public class CreateUserActivity  extends AsyncTask<String, Void, String[]>  {
             this.newSalt = (String)arg0[3];
             this.hashWord = (String)arg0[4];
             this.level = (String)arg0[5];
-            String link="http://192.168.1.126/CreateUser.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://54.69.210.120/CreateUser.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("firstName", "UTF-8") + "=" + URLEncoder.encode(firstName, "UTF-8");
             data  += "&" +URLEncoder.encode("lastName", "UTF-8") + "=" + URLEncoder.encode(lastName, "UTF-8");
             data  += "&" +URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");

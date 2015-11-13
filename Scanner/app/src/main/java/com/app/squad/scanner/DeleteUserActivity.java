@@ -43,7 +43,7 @@ public class DeleteUserActivity  extends AsyncTask<String, Void, String[]>  {
 
             this.userName = (String)arg0[0];
 
-            String link="http://192.168.1.126/DeleteUser.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://54.69.210.120/DeleteUser.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("userName", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
 
             URL url = new URL(link);
