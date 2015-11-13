@@ -11,7 +11,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -81,6 +83,35 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
     @Override  // This method occurs after data from the PHP has been returned
     protected void onPostExecute(String[] result){
         Log.i("result", result[0]);
+        if (result[0].toString().matches("success")){
+
+            new AlertDialog.Builder(context)
+                    .setTitle("All Set")
+                    .setMessage("User Password was Reset")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            Intent intent = new Intent(context, AdminLanding.class)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+        } else{
+            new AlertDialog.Builder(context)
+                    .setTitle("Uh Oh")
+                    .setMessage("There was an Error!")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
 
     }
 
