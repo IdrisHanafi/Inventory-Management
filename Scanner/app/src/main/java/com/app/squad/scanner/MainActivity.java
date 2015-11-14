@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         // Grabs username and password
-        //errAlert = (TextView) findViewById(R.id.errAlert);
+        errAlert = (TextView) findViewById(R.id.errAlert);
         String inputName = etUsername.getText().toString();
         String inputPass = etPassword.getText().toString();
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             switch (v.getId()) {
                 case R.id.bLogin:
-                    //new login(this, errAlert).execute(inputName, inputPass);
+                    new Login(this, errAlert).execute(inputName, inputPass);
                     //startActivity(new Intent(this, Scan.class));
                     break;
 
