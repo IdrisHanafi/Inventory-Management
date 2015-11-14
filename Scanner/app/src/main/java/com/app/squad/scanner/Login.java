@@ -1,19 +1,23 @@
 package com.app.squad.scanner;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigInteger;
+import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -67,10 +71,17 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
             // This splits the string into an array based on delimiter '!!!' (PHP handles that part)
             String[] result = echo.split("!!!");
-            this.salt = result[0];
-            this.echoPass = result[1];
-            this.privlvl = result[2];
-            return result;
+            if (result.length > 2){
+                this.salt = result[0];
+                this.echoPass = result[1];
+                this.privlvl = result[2];
+                return result;
+            }
+            else{
+                // modifies error returned from PHP/ MySQL
+                result[0] = "error";
+                return result;
+            }
 
         }
         catch(Exception e){
@@ -80,35 +91,42 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
     @Override  // This method occurs after data from the PHP has been returned
     protected void onPostExecute(String[] result){
+        if (result[0] == "error"){
+            // username does not exist
+            notification("Wrong User Name/Password", "Incorrect user name or password");
+        }else {
+            // Start the SHA-256 hash on the user's input password and salt
+            String hash = round2();
 
-        // Start the SHA-256 hash on the user's input password and salt
-        String hash = round2();
+            // Check if the hash is equal to the stored hash in the database- if yes, proceed.  If no, spit error
+            Boolean compare = round3(hash);
 
-        // Check if the hash is equal to the stored hash in the database- if yes, proceed.  If no, spit error
-        Boolean compare = round3(hash);
+            if (compare) {
+                if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
+                    Intent intent = new Intent(context, Scan.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
 
-        if (compare) {
-            if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
-                Intent intent = new Intent(context, Scan.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-
-            } else if (privlvl.matches("2")){
-                // This should activate the manager's landing page
+                } else if (privlvl.matches("2")){
+                    // This should activate the manager's landing page
 
 
-            } else if (privlvl.matches("3")){ // this is for the Admin's landing page
-                Intent intent = new Intent(context, AdminLanding.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
-            } else {
-                errAlert.setText("There is an error with your user account.  Please contact an administrator");
+                } else if (privlvl.matches("3")){ // this is for the Admin's landing page
+                    Intent intent = new Intent(context, AdminLanding.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                } else {
+                    // User privilege is not set
+                    notification("Error", "There is an error with your account.  Please contact and administrator");
+                }
+
             }
+            else{
+                // Wrong password notification
+                notification("Wrong User Name/Password", "Incorrect user name or password");
+            }
+        }
 
-        }
-        else{
-            errAlert.setText("Invalid Username or Password");
-        }
     }
 
 
@@ -128,7 +146,6 @@ public class Login extends AsyncTask<String, Void, String[]>  {
         }
     }
 
-
     // converts the password string to SHA-256 (output is in binary)
     public byte[] getHash(String password){
         MessageDigest digest = null;
@@ -145,5 +162,19 @@ public class Login extends AsyncTask<String, Void, String[]>  {
     // converts the binary from getHash() to hex
     static String bin2hex(byte[] data){
         return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
+    }
+
+    // Method for creating pop up notifications.
+    protected void notification(String title, String message){
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
