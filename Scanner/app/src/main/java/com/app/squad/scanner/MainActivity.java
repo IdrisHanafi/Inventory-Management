@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.InetAddress;
+
 //This is to test the private branch
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -71,7 +74,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String inputName = etUsername.getText().toString();
         String inputPass = etPassword.getText().toString();
 
-
         // Checks for empty username or password before processing
         if (inputName.matches("") || inputPass.matches("")) {
             new AlertDialog.Builder(this)
@@ -84,7 +86,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
+        }
+        /*
+        else if (connection == false){
+            new AlertDialog.Builder(this)
+                    .setTitle("Sorry")
+                    .setMessage("You Forgot to Enter your Username or Password")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+
+        }  */
+        else {
 
             switch (v.getId()) {
                 case R.id.bLogin:
