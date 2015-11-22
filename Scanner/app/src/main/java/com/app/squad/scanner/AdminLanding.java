@@ -42,9 +42,9 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, DeleteUserScreen.class));
                 break;
 
-            /**case R.id.bProductReport:
-                startActivity(new Intent(this, ProductReportScreen.class));
-                break;*/
+            case R.id.bProductReport:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
 
             case R.id.bCostAnalysis:
                 startActivity(new Intent(this, CostAnalysisScreen.class));

@@ -63,6 +63,10 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, AddRemoveQuantityScreen.class));
                 break;
 
+            case R.id.bProductReport:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
+
             case R.id.bCostAnalysis:
                 startActivity(new Intent(this, CostAnalysisScreen.class));
                 break;

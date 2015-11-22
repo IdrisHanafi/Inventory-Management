@@ -5,7 +5,8 @@
     android:padding="10dp"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/background">
 
     <ImageView
         android:layout_width="125dp"
@@ -57,6 +58,6 @@
         android:text="You must be registered to use this application"
         android:layout_height="wrap_content"
         android:layout_weight="0.05"
-        android:textColor="#90b6ff"/>
+        android:textColor="#000"/>
 
 </LinearLayout>

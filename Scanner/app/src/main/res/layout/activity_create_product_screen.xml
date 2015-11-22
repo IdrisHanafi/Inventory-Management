@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Product Name"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etProductName"
@@ -21,7 +23,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Description"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etDescription"
@@ -32,7 +35,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etPrice"
@@ -44,7 +48,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="UPC Code"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etUPCCode"

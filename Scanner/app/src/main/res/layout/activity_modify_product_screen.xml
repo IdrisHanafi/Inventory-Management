@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,19 +40,23 @@
         android:layout_width="wrap_content"
         android:text="Product Name"
         android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/etProductName"
         android:layout_width="371dp"
         android:hint="Current Product Name"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Description"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"/>
 
     <EditText
         android:id="@+id/etProductDescription"
@@ -64,7 +68,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:layout_marginLeft="5dp"/>
 
     <EditText
         android:id="@+id/etProductPrice"
