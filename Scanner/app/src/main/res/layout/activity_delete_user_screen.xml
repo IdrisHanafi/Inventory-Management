@@ -9,14 +9,14 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="UnRegister a User"
+        android:text="Delete a User"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginBottom="42dp"
         android:id="@+id/textView" />
 
     <TextView

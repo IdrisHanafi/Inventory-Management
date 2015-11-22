@@ -66,6 +66,7 @@ public class DeleteUserActivity  extends AsyncTask<String, Void, String[]>  {
 
             // This splits the string into an array based on delimiter '!!!' (PHP handles that part)
             String[] result = echo.split("!!!");
+            Log.i("Result:", result[0]);
             return result;
 
         }
