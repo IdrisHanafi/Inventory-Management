@@ -15,7 +15,10 @@
     <string name="title_activity_manager_screen">Manager</string>
     <string name="title_activity_normal_user_screen">Normal User</string>
     <string name="title_activity_register_user_screen">Register User</string>
+    <string name="title_activity_add_remove_quantity_screen">Add and Remove Product Quantity</string>
+    <string name="title_activity_modify_product_screen">Modify Product Information</string>
     <string name="title_activity_create_product_screen">Create Product</string>
+    <string name="title_activity_delete_product_screen">Delete Product</string>
     <string name="title_activity_cost_analysis_screen">Cost Analysis</string>
     <string name="title_activity_admin_landing">Administrator Landing Page</string>
     <string name="title_activity_change_password_screen">Change Password</string>

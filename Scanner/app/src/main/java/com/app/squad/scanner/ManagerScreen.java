@@ -1,37 +1,75 @@
 package com.app.squad.scanner;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-public class ManagerScreen extends AppCompatActivity {
+public class ManagerScreen extends AppCompatActivity implements View.OnClickListener {
+    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_screen);
+
+        bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
+        bCreateProduct.setOnClickListener(this);
+
+        bDeleteProduct = (Button) findViewById(R.id.bDeleteProduct);
+        bDeleteProduct.setOnClickListener(this);
+
+        bAddQuantity = (Button) findViewById(R.id.bAddQuantity);
+        bAddQuantity.setOnClickListener(this);
+
+        bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);
+        bRemoveQuantity.setOnClickListener(this);
+
+        bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
+        bModifyProduct.setOnClickListener(this);
+
+        bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
+        bProductReport.setOnClickListener(this);
+
+        bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
+        bCostAnalysis.setOnClickListener(this);
+
+        bChangePassword = (Button) findViewById(R.id.bChangePassword);
+        bChangePassword.setOnClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_manager_screen, menu);
-        return true;
-    }
+    public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (v.getId()) {
+            case R.id.bCreateProduct:
+                startActivity(new Intent(this, CreateProductScreen.class));
+                break;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.bDeleteProduct:
+                startActivity(new Intent(this, DeleteProductScreen.class));
+                break;
+
+            case R.id.bAddQuantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.bModifyProduct:
+                startActivity(new Intent(this, ModifyProductScreen.class));
+                break;
+
+            case R.id.bRemoveQuantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.bCostAnalysis:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
+
+            case R.id.bChangePassword:
+                startActivity(new Intent(this, ChangePasswordScreen.class));
+                break;
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

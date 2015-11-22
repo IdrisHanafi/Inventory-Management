@@ -18,10 +18,6 @@ public class DeleteUserScreen extends AppCompatActivity implements View.OnClickL
         etDeleteUser = (EditText) findViewById(R.id.etDeleteUser);
         bDeleteUser = (Button) findViewById(R.id.bDeleteUser);
         bDeleteUser.setOnClickListener(this);
-
-
-
-
     }
     @Override
     public void onClick(View v) {

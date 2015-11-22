@@ -1,27 +1,21 @@
 package com.app.squad.scanner;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.math.BigInteger;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
-import static android.support.v4.app.ActivityCompat.startActivity;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.math.BigInteger;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Login extends AsyncTask<String, Void, String[]>  {
     private Context context;
@@ -103,13 +97,15 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
             if (compare) {
                 if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
-                    Intent intent = new Intent(context, Scan.class)
+                    Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
                 } else if (privlvl.matches("2")){
                     // This should activate the manager's landing page
-
+                    Intent intent = new Intent(context, ManagerScreen.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
 
                 } else if (privlvl.matches("3")){ // this is for the Admin's landing page
                     Intent intent = new Intent(context, AdminLanding.class)
@@ -117,7 +113,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                     context.startActivity(intent);
                 } else {
                     // User privilege is not set
-                    notification("Error", "There is an error with your account.  Please contact and administrator");
+                    notification("Error", "There is an error with your account.  Please contact an administrator");
                 }
 
             }

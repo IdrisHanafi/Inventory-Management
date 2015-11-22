@@ -51,6 +51,18 @@
             android:label="@string/title_activity_create_product_screen" >
         </activity>
         <activity
+            android:name=".DeleteProductScreen"
+            android:label="@string/title_activity_delete_product_screen" >
+        </activity>
+        <activity
+            android:name=".AddRemoveQuantityScreen"
+            android:label="@string/title_activity_add_remove_quantity_screen" >
+        </activity>
+        <activity
+            android:name=".ModifyProductScreen"
+            android:label="@string/title_activity_modify_product_screen" >
+        </activity>
+        <activity
             android:name=".CostAnalysisScreen"
             android:label="@string/title_activity_cost_analysis_screen" >
         </activity>

@@ -8,21 +8,88 @@
     android:nestedScrollingEnabled="true">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:text="Profile"
-        android:layout_marginBottom="20dp"
+        android:layout_width="373dp"
+        android:text=""
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Name: "
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Create Product"
+        android:id="@+id/bCreateProduct"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
 
-    <EditText
-        android:id="@+id/etFirstname"
-        tools:text="John Doe"
-        android:layout_width="371dp"
-        android:layout_marginBottom="20dp"
-        android:layout_height="wrap_content" />
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Delete Product"
+        android:id="@+id/bDeleteProduct"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Add Product Quantity"
+        android:id="@+id/bAddQuantity"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Remove Product Quantity"
+        android:id="@+id/bRemoveQuantity"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Modify Product Information"
+        android:id="@+id/bModifyProduct"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="List Product Report"
+        android:id="@+id/bProductReport"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Cost Analysis Report"
+        android:id="@+id/bCostAnalysis"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:text="Change Password"
+        android:id="@+id/bChangePassword"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Product"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_gravity="center_horizontal"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productOne"
+            android:text="Product One"
+            android:onClick="selectProduct"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productTwo"
+            android:text="Product Two"
+            android:onClick="selectProduct"/>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/productThree"
+            android:text="Product Three"
+            android:onClick="selectProduct"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Product Name"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="371dp"
+        android:hint="Current Product Name"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Description"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etProductDescription"
+        android:layout_width="371dp"
+        android:hint="Current Description"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Price"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etProductPrice"
+        android:inputType="numberDecimal"
+        android:layout_width="371dp"
+        android:hint="Current Price"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bUpdateProductInfo"
+        android:text="Update Product Information"
+        android:layout_width="306dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>
