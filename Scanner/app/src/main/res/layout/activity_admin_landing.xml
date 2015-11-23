@@ -9,14 +9,15 @@
     android:background="@drawable/background">
 
     <TextView
-        android:layout_width="376dp"
-        android:text=""
+        android:layout_width="wrap_content"
+        android:text="Administrator Screen"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:textColor="#90b6ff"
+        android:textColor="#000000"
         android:textSize="20dp"
-        android:id="@+id/textView3"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp" />
 
     <Button
         android:layout_width="248dp"

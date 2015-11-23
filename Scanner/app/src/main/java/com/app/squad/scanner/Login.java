@@ -48,7 +48,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
         try {
             this.userName = (String) arg0[0];
             this.userPassword = (String) arg0[1];
-            String link = "http://192.168.1.10/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
+            String link = "http://192.168.1.8/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
             String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();

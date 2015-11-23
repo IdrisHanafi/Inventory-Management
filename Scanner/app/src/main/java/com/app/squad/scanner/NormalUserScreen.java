@@ -29,11 +29,11 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
 
         switch (v.getId()) {
             case R.id.bAddQuantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                startActivity(new Intent(this, IncreaseQuantityScreen.class));
                 break;
 
             case R.id.bRemoveQuantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                startActivity(new Intent(this, DecreaseQuantityScreen.class));
                 break;
 
             case R.id.bChangePassword:

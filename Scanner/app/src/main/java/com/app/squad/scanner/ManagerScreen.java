@@ -70,11 +70,11 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.action_increasequantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                startActivity(new Intent(this, IncreaseQuantityScreen.class));
                 break;
 
             case R.id.action_decreasequantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                startActivity(new Intent(this, DecreaseQuantityScreen.class));
                 break;
 
             case R.id.action_costanalysis:
@@ -89,14 +89,6 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.bAddQuantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
-                break;
-
-            case R.id.bRemoveQuantity:
-                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
-                break;
-
             case R.id.bChangePassword:
                 startActivity(new Intent(this, ChangePasswordScreen.class));
                 break;
