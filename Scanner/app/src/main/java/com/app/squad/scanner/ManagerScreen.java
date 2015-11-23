@@ -3,6 +3,8 @@ package com.app.squad.scanner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,8 +16,12 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_screen);
 
+        // Inflate the menu; this adds items to the action bar if it is present.
         bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
         bCreateProduct.setOnClickListener(this);
+
+        bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
+        bModifyProduct.setOnClickListener(this);
 
         bDeleteProduct = (Button) findViewById(R.id.bDeleteProduct);
         bDeleteProduct.setOnClickListener(this);
@@ -25,9 +31,6 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
 
         bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);
         bRemoveQuantity.setOnClickListener(this);
-
-        bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
-        bModifyProduct.setOnClickListener(this);
 
         bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
         bProductReport.setOnClickListener(this);
@@ -40,35 +43,58 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View v) {
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_manager_screen, menu);
+        return true;
+    }
 
-        switch (v.getId()) {
-            case R.id.bCreateProduct:
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.action_createproduct:
                 startActivity(new Intent(this, CreateProductScreen.class));
                 break;
 
-            case R.id.bDeleteProduct:
+            case R.id.action_modifyproduct:
+                startActivity(new Intent(this, ModifyProductScreen.class));
+                break;
+
+            case R.id.action_deleteproduct:
                 startActivity(new Intent(this, DeleteProductScreen.class));
                 break;
 
+            case R.id.action_increasequantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.action_decreasequantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.action_costanalysis:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
             case R.id.bAddQuantity:
                 startActivity(new Intent(this, AddRemoveQuantityScreen.class));
                 break;
 
-            case R.id.bModifyProduct:
-                startActivity(new Intent(this, ModifyProductScreen.class));
-                break;
-
             case R.id.bRemoveQuantity:
                 startActivity(new Intent(this, AddRemoveQuantityScreen.class));
-                break;
-
-            case R.id.bProductReport:
-                startActivity(new Intent(this, CostAnalysisScreen.class));
-                break;
-
-            case R.id.bCostAnalysis:
-                startActivity(new Intent(this, CostAnalysisScreen.class));
                 break;
 
             case R.id.bChangePassword:
@@ -76,4 +102,5 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
 }

@@ -3,10 +3,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="action_products">Products Menu</string>
+    <string name="action_products">Products Management</string>
     <string name="action_createproduct">Create Product</string>
+    <string name="action_modifyproduct">Modify Product</string>
     <string name="action_deleteproduct">Delete Product</string>
-    <string name="action_reports">Reports Menu</string>
+    <string name="action_inventory">Inventory Management</string>
+    <string name="action_increasequantity">Increase Quantity</string>
+    <string name="action_decreasequantity">Decrease Quantity</string>
+    <string name="action_reports">Reports Management</string>
     <string name="action_productlist">Product Lists Report</string>
     <string name="action_costanalysis">Cost Analysis Report</string>
 
@@ -16,8 +20,8 @@
     <string name="title_activity_normal_user_screen">Normal User</string>
     <string name="title_activity_register_user_screen">Register User</string>
     <string name="title_activity_add_remove_quantity_screen">Add and Remove Product Quantity</string>
-    <string name="title_activity_modify_product_screen">Modify Product Information</string>
     <string name="title_activity_create_product_screen">Create Product</string>
+    <string name="title_activity_modify_product_screen">Modify Product</string>
     <string name="title_activity_delete_product_screen">Delete Product</string>
     <string name="title_activity_cost_analysis_screen">Cost Analysis</string>
     <string name="title_activity_admin_landing">Administrator Landing Page</string>
