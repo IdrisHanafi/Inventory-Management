@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Product Name"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyProductName"
@@ -24,7 +26,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Description"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyDescription"
@@ -36,7 +39,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="UPC Code"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyUPCCode"
@@ -51,7 +55,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Wholesale Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyWholesalePrice"
@@ -63,7 +68,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Retail Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyRetailPrice"
@@ -75,7 +81,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Quantity on Hand"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyQuantity"
@@ -89,16 +96,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Location"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etModifyLocation"
         android:inputType="text"
         android:layout_width="371dp"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bModifyProduct"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/bModifyProduct"
@@ -106,9 +112,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
-        android:textColor="@android:color/white"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

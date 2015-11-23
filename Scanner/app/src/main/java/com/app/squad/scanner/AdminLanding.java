@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class AdminLanding extends AppCompatActivity implements View.OnClickListener{
-    Button bAddUser, bChangePassword, bDeleteUser;
+    Button bAddUser, bDeleteUser, bProductReport, bCostAnalysis, bChangePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +17,17 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
         bAddUser = (Button) findViewById(R.id.bAddUser);
         bAddUser.setOnClickListener(this);
 
-        bChangePassword = (Button) findViewById(R.id.bChangePassword);
-        bChangePassword.setOnClickListener(this);
-
         bDeleteUser = (Button) findViewById(R.id.bDeleteUser);
         bDeleteUser.setOnClickListener(this);
+
+        bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
+        bProductReport.setOnClickListener(this);
+
+        bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
+        bCostAnalysis.setOnClickListener(this);
+
+        bChangePassword = (Button) findViewById(R.id.bChangePassword);
+        bChangePassword.setOnClickListener(this);
     }
 
     @Override
@@ -32,12 +38,20 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, RegisterUserScreen.class));
                 break;
 
-            case R.id.bChangePassword:
-                startActivity(new Intent(this, ChangePasswordScreen.class));
-                break;
-
             case R.id.bDeleteUser:
                 startActivity(new Intent(this, DeleteUserScreen.class));
+                break;
+
+            case R.id.bProductReport:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
+
+            case R.id.bCostAnalysis:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
+                break;
+
+            case R.id.bChangePassword:
+                startActivity(new Intent(this, ChangePasswordScreen.class));
                 break;
         }
     }

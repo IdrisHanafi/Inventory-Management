@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"

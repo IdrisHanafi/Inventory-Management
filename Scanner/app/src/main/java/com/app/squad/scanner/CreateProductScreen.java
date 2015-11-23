@@ -13,6 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -28,6 +36,9 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
     EditText etLocation;
     Button bCreateProduct;
 
+    private String codeFormat,codeContent;
+    private TextView formatTxt, contentTxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +53,6 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
         etLocation = (EditText) findViewById(R.id.etLocation);
         bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
         bCreateProduct.setOnClickListener(this);
-
     }
 
     @Override

@@ -5,7 +5,8 @@
     android:padding="10dp"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/background">
 
     <ImageView
         android:layout_width="125dp"
@@ -13,27 +14,15 @@
         android:src="@drawable/barcode"
         android:layout_gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Username"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
-
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:id="@+id/etUsername"
         android:hint="Username"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Password"
         android:layout_height="wrap_content"
-        android:layout_weight="0.06" />
+        android:layout_marginTop="30dp"/>
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
         android:id="@+id/etPassword"
         android:inputType="textPassword"
         android:hint="Password"
@@ -41,11 +30,11 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="112dp"
         android:id="@+id/bLogin"
-        android:layout_margin="30dp"
         android:text="Login"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@drawable/custom_button"
         android:textColor="@android:color/white"/>
 
@@ -58,17 +47,17 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:text="You must be registered to use this application"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.05"
-        android:textColor="#90b6ff"/>
-
-    <TextView
         android:id="@+id/errAlert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="You must be registered to use this application"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:textColor="#000"/>
 
 </LinearLayout>

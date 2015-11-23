@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:text="Product Name"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etProductName"
@@ -22,7 +24,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Description"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etDescription"
@@ -34,7 +37,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="UPC Code"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etUPCCode"
@@ -49,7 +53,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Wholesale Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etWholesalePrice"
@@ -61,7 +66,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Retail Price"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etRetailPrice"
@@ -73,7 +79,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Quantity on Hand"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etQuantity"
@@ -85,7 +92,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:text="Location"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/etLocation"

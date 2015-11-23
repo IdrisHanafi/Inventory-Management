@@ -1,27 +1,24 @@
 package com.app.squad.scanner;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.math.BigInteger;
-import java.net.InetAddress;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
-import static android.support.v4.app.ActivityCompat.startActivity;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.math.BigInteger;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Login extends AsyncTask<String, Void, String[]>  {
     private Context context;
@@ -48,41 +45,38 @@ public class Login extends AsyncTask<String, Void, String[]>  {
     @Override
     protected String[] doInBackground(String... arg0) {
 
-        try{
-            this.userName = (String)arg0[0];
-            this.userPassword = (String)arg0[1];
-            String link="http://54.69.210.120/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
-            String data  = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
+        try {
+            this.userName = (String) arg0[0];
+            this.userPassword = (String) arg0[1];
+            String link = "http://192.168.1.10/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
+            String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-            wr.write( data );
+            wr.write(data);
             wr.flush();
 
             //  This reads the data coming from the PHP and puts it into a single string
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder sb = new StringBuilder();
             String line;
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 sb.append(line.toString());
             }
             this.echo = sb.toString();
-
             // This splits the string into an array based on delimiter '!!!' (PHP handles that part)
             String[] result = echo.split("!!!");
-            if (result.length > 2){
+            if (result.length > 2) {
                 this.salt = result[0];
                 this.echoPass = result[1];
                 this.privlvl = result[2];
                 return result;
-            }
-            else{
+            } else {
                 // modifies error returned from PHP/ MySQL
                 result[0] = "error";
                 return result;
             }
-
         }
         catch(Exception e){
             return new String[0];
@@ -103,7 +97,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
             if (compare) {
                 if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
-                    Intent intent = new Intent(context, Scan.class)
+                    Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
@@ -112,15 +106,13 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                     Intent intent = new Intent(context, ManagerScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
-
-
                 } else if (privlvl.matches("3")){ // this is for the Admin's landing page
                     Intent intent = new Intent(context, AdminLanding.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
                 } else {
                     // User privilege is not set
-                    notification("Error", "There is an error with your account.  Please contact and administrator");
+                    notification("Error", "There is an error with your account.  Please contact an administrator");
                 }
 
             }

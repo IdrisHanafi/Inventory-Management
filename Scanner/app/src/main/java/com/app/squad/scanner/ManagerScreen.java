@@ -1,17 +1,45 @@
 package com.app.squad.scanner;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class ManagerScreen extends AppCompatActivity {
+public class ManagerScreen extends AppCompatActivity implements View.OnClickListener {
+    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_screen);
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
+        bCreateProduct.setOnClickListener(this);
+
+        bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
+        bModifyProduct.setOnClickListener(this);
+
+        bDeleteProduct = (Button) findViewById(R.id.bDeleteProduct);
+        bDeleteProduct.setOnClickListener(this);
+
+        bAddQuantity = (Button) findViewById(R.id.bAddQuantity);
+        bAddQuantity.setOnClickListener(this);
+
+        bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);
+        bRemoveQuantity.setOnClickListener(this);
+
+        bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
+        bProductReport.setOnClickListener(this);
+
+        bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
+        bCostAnalysis.setOnClickListener(this);
+
+        bChangePassword = (Button) findViewById(R.id.bChangePassword);
+        bChangePassword.setOnClickListener(this);
     }
 
     @Override
@@ -28,29 +56,51 @@ public class ManagerScreen extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        switch(id) {
+        switch (id) {
             case R.id.action_createproduct:
                 startActivity(new Intent(this, CreateProductScreen.class));
                 break;
+
             case R.id.action_modifyproduct:
                 startActivity(new Intent(this, ModifyProductScreen.class));
                 break;
+
             case R.id.action_deleteproduct:
                 startActivity(new Intent(this, DeleteProductScreen.class));
                 break;
+
             case R.id.action_increasequantity:
-                startActivity(new Intent(this, CreateProductScreen.class));
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
                 break;
+
             case R.id.action_decreasequantity:
-                startActivity(new Intent(this, CreateProductScreen.class));
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
                 break;
-            case R.id.action_listproduct:
-                break;
+
             case R.id.action_costanalysis:
+                startActivity(new Intent(this, CostAnalysisScreen.class));
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+            case R.id.bAddQuantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.bRemoveQuantity:
+                startActivity(new Intent(this, AddRemoveQuantityScreen.class));
+                break;
+
+            case R.id.bChangePassword:
+                startActivity(new Intent(this, ChangePasswordScreen.class));
+                break;
+        }
+    }
+
 }
