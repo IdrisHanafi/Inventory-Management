@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.app.squad.scanner.ManagerScreen">
+
     <item android:id="@+id/action_product"
         android:title="@string/action_products"
         android:orderInCategory="100"
@@ -13,8 +14,31 @@
                 android:orderInCategory="100"
                 app:showAsAction="never" />
 
+            <item android:id="@+id/action_modifyproduct"
+                android:title="@string/action_modifyproduct"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
             <item android:id="@+id/action_deleteproduct"
                 android:title="@string/action_deleteproduct"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_inventory"
+        android:title="@string/action_inventory"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/action_increasequantity"
+                android:title="@string/action_increasequantity"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+            <item android:id="@+id/action_decreasequantity"
+                android:title="@string/action_decreasequantity"
                 android:orderInCategory="100"
                 app:showAsAction="never" />
         </menu>
@@ -37,4 +61,5 @@
                 app:showAsAction="never" />
         </menu>
     </item>
+
 </menu>

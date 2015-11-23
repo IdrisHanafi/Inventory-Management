@@ -109,6 +109,9 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
                 } else if (privlvl.matches("2")){
                     // This should activate the manager's landing page
+                    Intent intent = new Intent(context, ManagerScreen.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
 
 
                 } else if (privlvl.matches("3")){ // this is for the Admin's landing page
@@ -161,7 +164,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
     // converts the binary from getHash() to hex
     static String bin2hex(byte[] data){
-        return String.format("%0" + (data.length*2) + "X", new BigInteger(1, data));
+        return String.format("%0" + (data.length * 2) + "X", new BigInteger(1, data));
     }
 
     // Method for creating pop up notifications.

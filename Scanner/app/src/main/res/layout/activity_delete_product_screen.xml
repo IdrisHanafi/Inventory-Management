@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:padding="10dp"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
+    android:nestedScrollingEnabled="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Product Name"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etDeleteProductName"
+        android:inputType="text"
+        android:layout_width="371dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:focusable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Description"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etDeleteDescription"
+        android:inputType="text"
+        android:layout_width="371dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:focusable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="UPC Code"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/etDeleteUPCCode"
+        android:editable="false"
+        android:inputType="text"
+        android:layout_width="371dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:focusable="true" />
+
+    <Button
+        android:id="@+id/bDeleteProduct"
+        android:text="Delete Product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

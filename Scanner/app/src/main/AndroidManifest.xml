@@ -54,6 +54,14 @@
             android:name=".CostAnalysisScreen"
             android:label="@string/title_activity_cost_analysis_screen" >
         </activity>
+        <activity
+            android:name=".ModifyProductScreen"
+            android:label="@string/title_activity_modify_product_screen" >
+        </activity>
+        <activity
+            android:name=".DeleteProductScreen"
+            android:label="@string/title_activity_delete_product_screen" >
+        </activity>
     </application>
 
 </manifest>

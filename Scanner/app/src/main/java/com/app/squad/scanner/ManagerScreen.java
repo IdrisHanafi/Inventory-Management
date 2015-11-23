@@ -1,5 +1,6 @@
 package com.app.squad.scanner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,8 +29,26 @@ public class ManagerScreen extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id) {
+            case R.id.action_createproduct:
+                startActivity(new Intent(this, CreateProductScreen.class));
+                break;
+            case R.id.action_modifyproduct:
+                startActivity(new Intent(this, ModifyProductScreen.class));
+                break;
+            case R.id.action_deleteproduct:
+                startActivity(new Intent(this, DeleteProductScreen.class));
+                break;
+            case R.id.action_increasequantity:
+                startActivity(new Intent(this, CreateProductScreen.class));
+                break;
+            case R.id.action_decreasequantity:
+                startActivity(new Intent(this, CreateProductScreen.class));
+                break;
+            case R.id.action_listproduct:
+                break;
+            case R.id.action_costanalysis:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
