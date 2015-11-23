@@ -25,21 +25,17 @@ import org.json.JSONObject;
 
 import static android.support.v4.app.ActivityCompat.startActivity;
 
-public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
+public class ModifyQuantityActivity  extends AsyncTask<String, Void, Boolean>  {
 
     private Context context;
 
-    String productName ;
-    String description;
     String upcCode;
-    String wholesalePrice;
-    String retailPrice;
     String quantity;
-    String location;
+    String quantitySold;
     String echo;
     private ProgressDialog dialog;
 
-    public CreateProductActivity(Context context) {
+    public ModifyQuantityActivity(Context context) {
 
         this.context = context;
     }
@@ -57,22 +53,13 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
     protected Boolean doInBackground(String... arg0) {
 
         try{
-            this.productName = (String)arg0[0];
-            this.description = (String)arg0[1];
-            this.upcCode = (String)arg0[2];
-            this.wholesalePrice = (String)arg0[3];
-            this.retailPrice = (String)arg0[4];
-            this.quantity = (String)arg0[5];
-            this.location = (String)arg0[6];
-            String link="http://192.168.1.8/CreateProduct.php";  //This is the IP/Domain name of the server with the PHP
-            String data  = URLEncoder.encode("productName", "UTF-8") + "=" + URLEncoder.encode(productName, "UTF-8");
-            data  += "&" +URLEncoder.encode("description", "UTF-8") + "=" + URLEncoder.encode(description, "UTF-8");
-            data  += "&" +URLEncoder.encode("upcCode", "UTF-8") + "=" + URLEncoder.encode(upcCode, "UTF-8");
-            data  += "&" +URLEncoder.encode("wholesalePrice", "UTF-8") + "=" + URLEncoder.encode(wholesalePrice, "UTF-8");
-            data  += "&" +URLEncoder.encode("retailPrice", "UTF-8") + "=" + URLEncoder.encode(retailPrice, "UTF-8");
+            this.upcCode = (String)arg0[0];
+            this.quantity = (String)arg0[1];
+            this.quantitySold = (String)arg0[2];
+            String link="http://192.168.1.8/ModifyQuantity.php";  //This is the IP/Domain name of the server with the PHP
+            String data  = URLEncoder.encode("upcCode", "UTF-8") + "=" + URLEncoder.encode(upcCode, "UTF-8");
             data  += "&" +URLEncoder.encode("quantity", "UTF-8") + "=" + URLEncoder.encode(quantity, "UTF-8");
-            data  += "&" +URLEncoder.encode("location", "UTF-8") + "=" + URLEncoder.encode(location, "UTF-8");
-
+            data  += "&" +URLEncoder.encode("quantitySold", "UTF-8") + "=" + URLEncoder.encode(quantitySold, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
@@ -96,6 +83,7 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
             } else {
                 return false;
             }
+
         }
         catch(Exception e){
             return false;
@@ -103,14 +91,14 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
     }
 
     @Override  // This method occurs after data from the PHP has been returned
-    protected void onPostExecute(final Boolean result){
+    protected void onPostExecute(Boolean result){
         if (dialog.isShowing()) {
             dialog.dismiss();
         }
         if(result) {
             new AlertDialog.Builder(context)
                     .setTitle("All Set")
-                    .setMessage("Product Created Successfully")
+                    .setMessage("Quantity Successfully Modified!")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -125,7 +113,7 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
         } else {
             new AlertDialog.Builder(context)
                     .setTitle("Uh Oh")
-                    .setMessage("There was an Error, Product cannot be created!")
+                    .setMessage("There was an Error, Quantity cannot be modified!")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

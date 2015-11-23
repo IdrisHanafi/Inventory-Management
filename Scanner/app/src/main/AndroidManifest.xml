@@ -66,6 +66,14 @@
             android:name=".CostAnalysisScreen"
             android:label="@string/title_activity_cost_analysis_screen" >
         </activity>
+        <activity
+            android:name=".IncreaseQuantityScreen"
+            android:label="@string/title_activity_increase_quantity_screen" >
+        </activity>
+        <activity
+            android:name=".DecreaseQuantityScreen"
+            android:label="@string/title_activity_decrease_quantity_screen" >
+        </activity>
     </application>
 
 </manifest>

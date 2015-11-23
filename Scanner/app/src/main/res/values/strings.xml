@@ -27,4 +27,6 @@
     <string name="title_activity_admin_landing">Administrator Landing Page</string>
     <string name="title_activity_change_password_screen">Change Password</string>
     <string name="title_activity_delete_user_screen">Delete User</string>
+    <string name="title_activity_increase_quantity_screen">Increase Quantity Screen</string>
+    <string name="title_activity_decrease_quantity_screen">Decrease Quantity Screen</string>
 </resources>

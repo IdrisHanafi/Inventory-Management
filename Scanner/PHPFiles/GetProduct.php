@@ -35,6 +35,7 @@ if (isset($_POST["upcCode"])) {
             $product["retailPrice"] = $result["retailPrice"];
             $product["quantity"] = $result["quantity"];
             $product["location"] = $result["location"];
+            $product["quantitySold"] = $result["quantitySold"];
             // success
             $response["success"] = 1;
  
