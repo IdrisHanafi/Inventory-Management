@@ -60,7 +60,7 @@ public class GetProductActivity  extends AsyncTask<String, Object, Object>  {
 
         try{
             this.upcCode = (String)arg0[0];
-            String link="http://192.168.1.8/GetProduct.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://54.69.210.120/GetProduct.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("upcCode", "UTF-8") + "=" + URLEncoder.encode(upcCode, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();

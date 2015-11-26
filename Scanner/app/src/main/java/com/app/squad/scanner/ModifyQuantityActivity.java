@@ -56,7 +56,7 @@ public class ModifyQuantityActivity  extends AsyncTask<String, Void, Boolean>  {
             this.upcCode = (String)arg0[0];
             this.quantity = (String)arg0[1];
             this.quantitySold = (String)arg0[2];
-            String link="http://192.168.1.8/ModifyQuantity.php";  //This is the IP/Domain name of the server with the PHP
+            String link="http://54.69.210.120/ModifyQuantity.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("upcCode", "UTF-8") + "=" + URLEncoder.encode(upcCode, "UTF-8");
             data  += "&" +URLEncoder.encode("quantity", "UTF-8") + "=" + URLEncoder.encode(quantity, "UTF-8");
             data  += "&" +URLEncoder.encode("quantitySold", "UTF-8") + "=" + URLEncoder.encode(quantitySold, "UTF-8");
