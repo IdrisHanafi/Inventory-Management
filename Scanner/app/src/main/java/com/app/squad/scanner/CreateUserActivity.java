@@ -25,6 +25,7 @@ public class CreateUserActivity  extends AsyncTask<String, Void, String[]>  {
     String hashWord;
     String level;
     String echo;
+    String firstTime;
 
     public CreateUserActivity(Context context) {
 
@@ -40,12 +41,14 @@ public class CreateUserActivity  extends AsyncTask<String, Void, String[]>  {
     protected String[] doInBackground(String... arg0) {
 
         try{
+
             this.firstName = (String)arg0[0];
             this.lastName = (String)arg0[1];
             this.userName = (String)arg0[2];
             this.newSalt = (String)arg0[3];
             this.hashWord = (String)arg0[4];
             this.level = (String)arg0[5];
+
             String link="http://54.69.210.120/CreateUser.php";  //This is the IP/Domain name of the server with the PHP
             String data  = URLEncoder.encode("firstName", "UTF-8") + "=" + URLEncoder.encode(firstName, "UTF-8");
             data  += "&" +URLEncoder.encode("lastName", "UTF-8") + "=" + URLEncoder.encode(lastName, "UTF-8");
@@ -53,6 +56,7 @@ public class CreateUserActivity  extends AsyncTask<String, Void, String[]>  {
             data  += "&" +URLEncoder.encode("newSalt", "UTF-8") + "=" + URLEncoder.encode(newSalt, "UTF-8");
             data  += "&" +URLEncoder.encode("hashWord", "UTF-8") + "=" + URLEncoder.encode(hashWord, "UTF-8");
             data  += "&" +URLEncoder.encode("level", "UTF-8") + "=" + URLEncoder.encode(level, "UTF-8");
+
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);

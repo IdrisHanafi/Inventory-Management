@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -31,7 +32,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
     String echoPass;
     String privlvl;
     String fullHash;
-
+    String firstTime;
 
     public Login(Context context, TextView errAlert) {
         this.context = context;
@@ -48,7 +49,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
         try {
             this.userName = (String) arg0[0];
             this.userPassword = (String) arg0[1];
-            String link = "http://192.168.1.8/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
+            String link = "http://54.69.210.120/ReadSalt.php";  //This is the IP/Domain name of the server with the PHP
             String data = URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(userName, "UTF-8");
             URL url = new URL(link);
             URLConnection conn = url.openConnection();
@@ -71,6 +72,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                 this.salt = result[0];
                 this.echoPass = result[1];
                 this.privlvl = result[2];
+                this.firstTime = result[3];
                 return result;
             } else {
                 // modifies error returned from PHP/ MySQL
@@ -96,7 +98,12 @@ public class Login extends AsyncTask<String, Void, String[]>  {
             Boolean compare = round3(hash);
 
             if (compare) {
-                if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
+
+
+                // Need to put in the (if firstTime = 1, change password) logic
+
+
+                 if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
                     Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);

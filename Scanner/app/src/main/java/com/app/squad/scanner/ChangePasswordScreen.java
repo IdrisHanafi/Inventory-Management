@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -14,11 +15,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 public class ChangePasswordScreen extends AppCompatActivity implements View.OnClickListener{
-    Button bChangePassword;
+    Button bChangePassword, bSearchUser;
     EditText etChangeUser, etPassword, etConfirmPassword;
     String newSalt;
     String newPassword;
     String userName;
+    TextView listNames, searchResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +30,12 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
         etChangeUser = (EditText) findViewById(R.id.etChangeUser);
         etPassword = (EditText) findViewById(R.id.etPassword);
         etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
-
+        listNames = (TextView) findViewById(R.id.listNames);
+        searchResults = (TextView) findViewById(R.id.searchResults);
         bChangePassword = (Button) findViewById(R.id.bChangePassword);
         bChangePassword.setOnClickListener(this);
+        bSearchUser = (Button) findViewById(R.id.bSearchUser);
+        bSearchUser.setOnClickListener(this);
     }
 
 
@@ -42,7 +47,11 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
         String newConfirm = etConfirmPassword.getText().toString();
         newSalt = createSalt();
 
-        if (userName.matches("") || newPassword.matches("") || newConfirm.matches("")){
+        if (v.getId() == (R.id.bSearchUser) && !userName.matches("")) {
+            new SearchUsersActivity(this, listNames).execute(userName);
+            this.searchResults.setText("Search Results:");
+
+        }else if (userName.matches("") || newPassword.matches("") || newConfirm.matches("")) {
             new AlertDialog.Builder(this)
                     .setTitle("Sorry")
                     .setMessage("You Left a Required Field Blank")
@@ -64,14 +73,29 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
+        }
+        else if (!newPassword.matches("[a-zA-Z0-9.]*") || !newConfirm.matches("[a-zA-Z0-9.?]*")){
+            new AlertDialog.Builder(this)
+                    .setTitle("Sorry")
+                    .setMessage("You Entered an invalid character")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+        else {
 
             switch (v.getId()) {
                 case R.id.bChangePassword:
-                    new ChangePasswordActivity(this).execute(userName, newSalt,  hashWord);
-
+                    new ChangePasswordActivity(this).execute(userName, newSalt, hashWord);
                     break;
-
+                case R.id.bSearchUser:
+                    new SearchUsersActivity(this, listNames).execute(userName);
+                    this.searchResults.setText("Search Results:");
+                    break;
             } // end switch statement
 
         } // end if/else
