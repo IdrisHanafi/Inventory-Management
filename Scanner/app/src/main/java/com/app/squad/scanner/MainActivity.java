@@ -81,11 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
-        /*
-        else if (connection == false){
+        else if (!inputName.matches("[a-zA-Z0-9.]*") || !inputPass.matches("[a-zA-Z0-9.?]*")){
             new AlertDialog.Builder(this)
                     .setTitle("Sorry")
-                    .setMessage("You Forgot to Enter your Username or Password")
+                    .setMessage("You Entered an invalid character")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -93,14 +92,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
+        }
 
-        }  */
         else {
 
             switch (v.getId()) {
                 case R.id.bLogin:
                     new Login(this, errAlert).execute(inputName, inputPass);
-                    //startActivity(new Intent(this, Scan.class));
                     break;
 
             } // end switch statement

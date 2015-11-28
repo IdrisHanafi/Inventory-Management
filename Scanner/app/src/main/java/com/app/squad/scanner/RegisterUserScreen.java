@@ -18,7 +18,6 @@ import java.util.Random;
 public class RegisterUserScreen extends AppCompatActivity implements View.OnClickListener {
     Button bRegister;
     EditText etFirstname, etLastname,etUsername,etPassword,etConfirmPassword;
-    String newSalt;
     CheckBox chkManager;
     String newPriv;
 
@@ -48,7 +47,6 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
         String newFirstName = etFirstname.getText().toString();
         String newPassword = etPassword.getText().toString();
         String newConfirmPass = etConfirmPassword.getText().toString();
-
 
         String newSalt = createSalt();
         String hashWord = bin2hex(getHash(newSalt + newPassword));
@@ -82,7 +80,20 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
+        }
+        else if (!newUserName.matches("[a-zA-Z0-9.]*") || !newFirstName.matches("[a-zA-Z0-9.?]*")|| !newLastName.matches("[a-zA-Z0-9.?]*") || !newPassword.matches("[a-zA-Z0-9.?]*") || !newConfirmPass.matches("[a-zA-Z0-9.?]*")){
+            new AlertDialog.Builder(this)
+                    .setTitle("Sorry")
+                    .setMessage("You Entered an invalid character")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
+        else {
 
             switch (v.getId()) {
                 case R.id.bRegister:
