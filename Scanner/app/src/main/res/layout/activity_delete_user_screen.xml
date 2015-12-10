@@ -32,13 +32,52 @@
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content" />
 
+    <LinearLayout
+        android:id="@+id/LinearLayout02"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentBottom="true">
+
     <Button
-        android:id="@+id/bDeleteUser"
-        android:text="UnRegister"
-        android:layout_width="match_parent"
+        android:id="@+id/bSearchUser"
+        android:text="Search User"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
         android:textColor="@android:color/white"
-        android:layout_below="@+id/etDeleteUser"
-        android:layout_alignParentLeft="true" />
+        android:layout_weight="1"
+        android:layout_below="@+id/etDeleteUser" />
+
+    <Button
+        android:id="@+id/bDeleteUser"
+        android:text="Delete User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:textColor="@android:color/white"
+        android:layout_weight="1"
+        android:layout_below="@+id/etDeleteUser" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/searchResults"
+        android:paddingTop="15dp"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:id="@+id/listNames"
+        android:paddingTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
 </LinearLayout>

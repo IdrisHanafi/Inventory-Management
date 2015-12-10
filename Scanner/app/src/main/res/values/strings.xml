@@ -29,4 +29,5 @@
     <string name="title_activity_delete_user_screen">Delete User</string>
     <string name="title_activity_increase_quantity_screen">Increase Quantity Screen</string>
     <string name="title_activity_decrease_quantity_screen">Decrease Quantity Screen</string>
+    <string name="title_activity_search_user_screen">Search Users Screen</string>
 </resources>
