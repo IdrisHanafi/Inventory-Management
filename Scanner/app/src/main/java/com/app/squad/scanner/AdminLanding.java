@@ -7,16 +7,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class AdminLanding extends AppCompatActivity implements View.OnClickListener{
-    Button bAddUser, bDeleteUser, bProductReport, bCostAnalysis, bChangePassword;
+    Button bAddUser, bDeleteUser, bProductReport, bCostAnalysis, bChangePassword, bLogOut;
+    String getUserInfo;
+    TextView tName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_landing);
 
-        bAddUser = (Button) findViewById(R.id.bAddUser);
+        Intent intent = getIntent();
+        getUserInfo = intent.getExtras().getString("userInfo");
+        String[] userResults = getUserInfo.split(" ");
+
+        tName = (TextView) findViewById(R.id.tName);
+        tName.setText(userResults[0] + " " + userResults[1]);
+
+        /**bAddUser = (Button) findViewById(R.id.bAddUser);
         bAddUser.setOnClickListener(this);
 
         bDeleteUser = (Button) findViewById(R.id.bDeleteUser);
@@ -26,7 +36,10 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
         bProductReport.setOnClickListener(this);
 
         bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
-        bCostAnalysis.setOnClickListener(this);
+        bCostAnalysis.setOnClickListener(this);*/
+
+        bLogOut = (Button) findViewById(R.id.bLogOut);
+        bLogOut.setOnClickListener(this);
 
         bChangePassword = (Button) findViewById(R.id.bChangePassword);
         bChangePassword.setOnClickListener(this);
@@ -86,6 +99,10 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.bLogOut:
+                finish();
+                break;
+
             case R.id.bChangePassword:
                 startActivity(new Intent(this, ChangePasswordScreen.class));
                 break;

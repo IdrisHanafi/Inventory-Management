@@ -7,20 +7,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class NormalUserScreen extends AppCompatActivity implements View.OnClickListener{
-    Button bAddQuantity, bRemoveQuantity, bChangePassword;
+    Button bAddQuantity, bRemoveQuantity, bChangePassword, bLogOut;
+    String getUserInfo;
+    TextView tName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_normal_user_screen);
 
-        bAddQuantity = (Button) findViewById(R.id.bAddQuantity);    // Not finished yet
+        Intent intent = getIntent();
+        getUserInfo = intent.getExtras().getString("userInfo");
+        String[] userResults = getUserInfo.split(" ");
+
+        tName = (TextView) findViewById(R.id.tName);
+        tName.setText(userResults[0] + " " + userResults[1]);
+
+        /**bAddQuantity = (Button) findViewById(R.id.bAddQuantity);
         bAddQuantity.setOnClickListener(this);
 
-        bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);  // Not finished yet
-        bRemoveQuantity.setOnClickListener(this);
+        bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);
+        bRemoveQuantity.setOnClickListener(this);*/
+
+        bLogOut = (Button) findViewById(R.id.bLogOut);
+        bLogOut.setOnClickListener(this);
 
         bChangePassword = (Button) findViewById(R.id.bChangePassword);
         bChangePassword.setOnClickListener(this);
@@ -54,12 +67,15 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.bAddQuantity:
+            /**case R.id.bAddQuantity:
                 startActivity(new Intent(this, IncreaseQuantityScreen.class));
                 break;
 
             case R.id.bRemoveQuantity:
                 startActivity(new Intent(this, DecreaseQuantityScreen.class));
+                break;*/
+            case R.id.bLogOut:
+                finish();
                 break;
 
             case R.id.bChangePassword:

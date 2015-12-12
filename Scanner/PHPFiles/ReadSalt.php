@@ -7,19 +7,18 @@ if (mysqli_connect_errno($con))
 }
 $username = $_POST['username'];
 
-$result = mysqli_query($con,"SELECT salt, pass, level FROM users WHERE uName='$username'");
+$result = mysqli_query($con,"SELECT fName, lName, salt, password, priv, firstTime FROM Users WHERE uName='$username'");
 $row = mysqli_fetch_array($result);
 $arraylength = count($row);
 
 
 $stuff =array();
 for($x=0;$x<$arraylength/2;$x++)
-  {
+{
   echo $row[$x];
   echo "!!!";
-  }
+}
 
 
 mysqli_close($con);
 ?>
-

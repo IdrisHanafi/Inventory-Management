@@ -7,17 +7,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ManagerScreen extends AppCompatActivity implements View.OnClickListener {
-    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword;
+    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword, bLogOut;
+    String getUserInfo;
+    TextView tName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_screen);
 
+        Intent intent = getIntent();
+        getUserInfo = intent.getExtras().getString("userInfo");
+        String[] userResults = getUserInfo.split(" ");
+
+        tName = (TextView) findViewById(R.id.tName);
+        tName.setText(userResults[0] + " " + userResults[1]);
+
         // Inflate the menu; this adds items to the action bar if it is present.
-        bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
+        /**bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
         bCreateProduct.setOnClickListener(this);
 
         bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
@@ -36,7 +46,10 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
         bProductReport.setOnClickListener(this);
 
         bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
-        bCostAnalysis.setOnClickListener(this);
+        bCostAnalysis.setOnClickListener(this);*/
+
+        bLogOut = (Button) findViewById(R.id.bLogOut);
+        bLogOut.setOnClickListener(this);
 
         bChangePassword = (Button) findViewById(R.id.bChangePassword);
         bChangePassword.setOnClickListener(this);
@@ -89,6 +102,10 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()) {
+            case R.id.bLogOut:
+                finish();
+                break;
+
             case R.id.bChangePassword:
                 startActivity(new Intent(this, ChangePasswordScreen.class));
                 break;

@@ -28,6 +28,8 @@ public class Login extends AsyncTask<String, Void, String[]>  {
     String userName;
     String userPassword;
     String echo;
+    String fName;
+    String lName;
     String salt;
     String echoPass;
     String privlvl;
@@ -68,11 +70,13 @@ public class Login extends AsyncTask<String, Void, String[]>  {
             this.echo = sb.toString();
             // This splits the string into an array based on delimiter '!!!' (PHP handles that part)
             String[] result = echo.split("!!!");
-            if (result.length > 2) {
-                this.salt = result[0];
-                this.echoPass = result[1];
-                this.privlvl = result[2];
-                this.firstTime = result[3];
+            if (result.length > 4) {
+                this.fName = result[0];
+                this.lName = result[1];
+                this.salt = result[2];
+                this.echoPass = result[3];
+                this.privlvl = result[4];
+                this.firstTime = result[5];
                 return result;
             } else {
                 // modifies error returned from PHP/ MySQL
@@ -87,6 +91,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
 
     @Override  // This method occurs after data from the PHP has been returned
     protected void onPostExecute(String[] result){
+        String getUserInfo = "";
         if (result[0] == "error"){
             // username does not exist
             notification("Wrong User Name/Password", "Incorrect user name or password");
@@ -106,16 +111,22 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                  if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
                     Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                     getUserInfo = result[0] + " " + result[1] + " Normal";
+                     intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
 
                 } else if (privlvl.matches("2")){
                     // This should activate the manager's landing page
                     Intent intent = new Intent(context, ManagerScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                     getUserInfo = result[0] + " " + result[1] + " Manager";
+                     intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
                 } else if (privlvl.matches("3")){ // this is for the Admin's landing page
                     Intent intent = new Intent(context, AdminLanding.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                     getUserInfo = result[0] + " " + result[1] + " Administrator";
+                     intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
                 } else {
                     // User privilege is not set

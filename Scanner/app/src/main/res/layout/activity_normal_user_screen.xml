@@ -6,7 +6,8 @@
     android:theme="@style/AppTheme"
     android:orientation="vertical"
     android:nestedScrollingEnabled="true"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,24 +20,39 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="1dp" />
 
-    <Button
-        android:layout_width="248dp"
-        android:layout_height="wrap_content"
-        android:text="Add Product Quantity"
-        android:id="@+id/bAddQuantity"
+    <ImageView
+        android:layout_width="145dp"
+        android:layout_height="132dp"
+        android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/custom_button"
-        android:textColor="@android:color/white"/>
+        android:background="@drawable/profile"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/tName"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Status"
+        android:id="@+id/tStatus"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.16" />
 
     <Button
         android:layout_width="248dp"
         android:layout_height="wrap_content"
-        android:text="Remove Product Quantity"
-        android:id="@+id/bRemoveQuantity"
+        android:text="Edit Account Info"
+        android:id="@+id/bChangePassword"
         android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/bChangePassword"
         android:layout_centerHorizontal="true"
         android:background="@drawable/custom_button"
         android:textColor="@android:color/white"
@@ -45,10 +61,10 @@
     <Button
         android:layout_width="248dp"
         android:layout_height="wrap_content"
-        android:text="Change Password"
-        android:id="@+id/bChangePassword"
+        android:text="Log Out"
+        android:id="@+id/bLogOut"
         android:layout_gravity="center_horizontal"
-        android:layout_above="@+id/bRemoveQuantity"
+        android:layout_above="@+id/bChangePassword"
         android:layout_centerHorizontal="true"
         android:background="@drawable/custom_button"
         android:textColor="@android:color/white"
