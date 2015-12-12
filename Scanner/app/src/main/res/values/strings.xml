@@ -11,6 +11,9 @@
     <string name="action_increasequantity">Increase Quantity</string>
     <string name="action_decreasequantity">Decrease Quantity</string>
     <string name="action_reports">Reports Management</string>
+    <string name="action_users">User Management</string>
+    <string name="action_deleteuser">Delete User</string>
+    <string name="action_registeruser">Register User</string>
     <string name="action_productlist">Product Lists Report</string>
     <string name="action_costanalysis">Cost Analysis Report</string>
 

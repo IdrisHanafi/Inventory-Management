@@ -19,7 +19,9 @@
         android:id="@+id/etUsername"
         android:hint="Username"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:inputType="text"
+        android:nextFocusForward="@+id/etPassword"/>
 
     <EditText
         android:layout_width="250dp"
@@ -27,7 +29,8 @@
         android:inputType="textPassword"
         android:hint="Password"
         android:layout_margin="10dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:imeOptions="actionDone"/>
 
     <Button
         android:layout_width="112dp"

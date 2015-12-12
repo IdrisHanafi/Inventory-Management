@@ -2,6 +2,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.app.squad.scanner.NormalUserScreen">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_inventory"
+        android:title="@string/action_inventory"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/action_increasequantity"
+                android:title="@string/action_increasequantity"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+
+            <item android:id="@+id/action_decreasequantity"
+                android:title="@string/action_decreasequantity"
+                android:orderInCategory="100"
+                app:showAsAction="never" />
+        </menu>
+    </item>
 </menu>

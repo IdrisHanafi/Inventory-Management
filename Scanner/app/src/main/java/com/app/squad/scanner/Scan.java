@@ -48,15 +48,15 @@ public class Scan extends AppCompatActivity {
      * @param intent
      */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//retrieve scan result
+        //retrieve scan result
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
         if (scanningResult != null) {
-//we have a result
+            //we have a result
             String scanContent = scanningResult.getContents();
             String scanFormat = scanningResult.getFormatName();
 
-// display it on screen
+            // display it on screen
             formatTxt.setText("FORMAT: " + scanFormat);
             contentTxt.setText("CONTENT: " + scanContent);
 

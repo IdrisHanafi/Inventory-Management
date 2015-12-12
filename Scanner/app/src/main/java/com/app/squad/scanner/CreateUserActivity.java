@@ -115,8 +115,5 @@ public class CreateUserActivity  extends AsyncTask<String, Void, String[]>  {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
-
     }
-
-
 }

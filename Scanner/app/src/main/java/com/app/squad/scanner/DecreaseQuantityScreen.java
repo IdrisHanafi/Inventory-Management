@@ -65,7 +65,6 @@ public class DecreaseQuantityScreen extends AppCompatActivity implements View.On
     }
 
     public void scanNow(){
-        /*
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
         integrator.setPrompt("Scan a barcode");
@@ -73,7 +72,7 @@ public class DecreaseQuantityScreen extends AppCompatActivity implements View.On
         integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
         integrator.setCameraId(0);  // Use a specific camera of the device
         integrator.initiateScan();
-        */
+
         GetProductActivity asyncTask = new GetProductActivity(this, new AsyncResponse() {
 
             @Override
