@@ -34,7 +34,7 @@ public class Scan extends AppCompatActivity {
 
     public void scanNow(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
         integrator.setPrompt("Scan a barcode");
         integrator.setResultDisplayDuration(0);
         integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes

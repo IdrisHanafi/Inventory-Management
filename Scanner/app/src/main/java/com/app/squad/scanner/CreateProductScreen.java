@@ -95,20 +95,15 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
      * @param intent
      */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//retrieve scan result
+        //retrieve scan result
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
         if (scanningResult != null) {
-//we have a result
+            //we have a result
             String scanContent = scanningResult.getContents();
-            String scanFormat = scanningResult.getFormatName();
-
             etUPCCode.setText(scanContent);
-// display it on screen
-//            formatTxt.setText("FORMAT: " + scanFormat);
-//            contentTxt.setText("CONTENT: " + scanContent);
-
-        }else{
+        }
+        else{
             Toast toast = Toast.makeText(getApplicationContext(),"No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -137,15 +132,12 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
-
- //           Log.i("Everything", newFirstName + newLastName + newUserName + newSalt + hashWord + newPriv);
+        }
+        else {
             new CreateProductActivity(this).execute(newProductName,
                     newDescription, newUPCCode, newWholesalePrice,
                     newRetailPrice, newQuantity, newLocation);
 
-        } // end if/else
-
+        }
     }
-
 }
