@@ -47,8 +47,8 @@
         android:layout_width="371dp"
         android:layout_marginBottom="5dp"
         android:layout_height="wrap_content"
-        android:enabled="true"
-        android:focusable="true" />
+        android:enabled="false"
+        android:focusable="false" />
 
     <TextView
         android:layout_width="wrap_content"

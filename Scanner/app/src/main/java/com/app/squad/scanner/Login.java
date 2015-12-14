@@ -111,7 +111,7 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                  if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
                     Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                     getUserInfo = result[0] + " " + result[1] + " Normal";
+                     getUserInfo = result[0] + " " + result[1] + " Normal" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
 
@@ -119,13 +119,13 @@ public class Login extends AsyncTask<String, Void, String[]>  {
                     // This should activate the manager's landing page
                     Intent intent = new Intent(context, ManagerScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                     getUserInfo = result[0] + " " + result[1] + " Manager";
+                     getUserInfo = result[0] + " " + result[1] + " Manager" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
                 } else if (privlvl.matches("3")){ // this is for the Admin's landing page
                     Intent intent = new Intent(context, AdminLanding.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                     getUserInfo = result[0] + " " + result[1] + " Administrator";
+                     getUserInfo = result[0] + " " + result[1] + " Administrator" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
                 } else {

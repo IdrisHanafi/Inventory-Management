@@ -13,6 +13,9 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
     Button bAddQuantity, bRemoveQuantity, bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
+    TextView status;
+    String userName;
+    String privilege;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,13 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
 
         tName = (TextView) findViewById(R.id.tName);
         tName.setText(userResults[0] + " " + userResults[1]);
+
+        /*
+        status = (TextView) findViewById(R.id.tStatus);
+        status.setText(userResults[2]);
+*/
+        privilege = userResults[2];
+        userName = userResults[3];
 
         /**bAddQuantity = (Button) findViewById(R.id.bAddQuantity);
         bAddQuantity.setOnClickListener(this);
@@ -79,7 +89,11 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.bChangePassword:
-                startActivity(new Intent(this, ChangePasswordScreen.class));
+                Intent intent = new Intent(this, ChangePasswordScreen.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("userName", userName);
+                intent.putExtra("privilege", privilege);
+                this.startActivity(intent);
                 break;
         }
     }

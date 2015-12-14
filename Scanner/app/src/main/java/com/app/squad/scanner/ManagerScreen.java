@@ -10,9 +10,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ManagerScreen extends AppCompatActivity implements View.OnClickListener {
-    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword, bLogOut;
+    Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
+    String userName;
+    String privilege;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
 
         tName = (TextView) findViewById(R.id.tName);
         tName.setText(userResults[0] + " " + userResults[1]);
+
+        privilege = userResults[2];
+        userName = userResults[3];
 
         // Inflate the menu; this adds items to the action bar if it is present.
         /**bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
@@ -107,7 +112,11 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.bChangePassword:
-                startActivity(new Intent(this, ChangePasswordScreen.class));
+                Intent intent = new Intent(this, ChangePasswordScreen.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("userName", userName);
+                intent.putExtra("privilege", privilege);
+                this.startActivity(intent);
                 break;
         }
     }
