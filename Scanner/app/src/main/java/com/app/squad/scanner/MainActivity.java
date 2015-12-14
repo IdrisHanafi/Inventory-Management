@@ -15,12 +15,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     Button bLogin;
     UserLocalStorage userLocalStore;
     EditText etUsername, etPassword;
     private TextView errAlert;  // delete this
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bLogin.setOnClickListener(this);
 
         userLocalStore = new UserLocalStorage(this);
-
     }
 
     @Override
@@ -58,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
-
 
     // On click event handling
     public void onClick(View v) {
@@ -95,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         else {
-
             switch (v.getId()) {
                 case R.id.bLogin:
                     new Login(this, errAlert).execute(inputName, inputPass);
@@ -104,9 +99,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } // end switch statement
 
         } // end if/else
-
-
     }
-
-
 }

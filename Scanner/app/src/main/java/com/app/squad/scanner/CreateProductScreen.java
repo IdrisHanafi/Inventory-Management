@@ -36,9 +36,6 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
     EditText etLocation;
     Button bCreateProduct;
 
-    private String codeFormat,codeContent;
-    private TextView formatTxt, contentTxt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +71,6 @@ public class CreateProductScreen extends AppCompatActivity implements View.OnCli
             scanNow();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

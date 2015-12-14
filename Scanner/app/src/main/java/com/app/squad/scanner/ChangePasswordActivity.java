@@ -18,7 +18,6 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
 
     private Context context;
 
-
     String userName;
     String newSalt;
     String hashWord;
@@ -29,13 +28,10 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
     }
 
     protected void onPreExecute(){
-
     }
-
 
     @Override
     protected String[] doInBackground(String... arg0) {
-
         try{
             this.userName = (String)arg0[0];
             this.newSalt = (String)arg0[1];
@@ -64,7 +60,6 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
             // This splits the string into an array based on delimiter '!!!' (PHP handles that part)
             String[] result = echo.split("!!!");
             return result;
-
         }
         catch(Exception e){
             return new String[0];
@@ -103,12 +98,5 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
-
     }
-
-
-
-
-
-
 }

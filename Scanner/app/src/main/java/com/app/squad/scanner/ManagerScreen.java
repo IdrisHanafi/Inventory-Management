@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class ManagerScreen extends AppCompatActivity implements View.OnClickListener {
-    Button bCreateProduct, bDeleteProduct, bAddQuantity, bRemoveQuantity, bModifyProduct, bProductReport, bCostAnalysis, bChangePassword, bLogOut;
+    Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
 
@@ -25,28 +25,6 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
 
         tName = (TextView) findViewById(R.id.tName);
         tName.setText(userResults[0] + " " + userResults[1]);
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        /**bCreateProduct = (Button) findViewById(R.id.bCreateProduct);
-        bCreateProduct.setOnClickListener(this);
-
-        bModifyProduct = (Button) findViewById(R.id.bModifyProduct);
-        bModifyProduct.setOnClickListener(this);
-
-        bDeleteProduct = (Button) findViewById(R.id.bDeleteProduct);
-        bDeleteProduct.setOnClickListener(this);
-
-        bAddQuantity = (Button) findViewById(R.id.bAddQuantity);
-        bAddQuantity.setOnClickListener(this);
-
-        bRemoveQuantity = (Button) findViewById(R.id.bRemoveQuantity);
-        bRemoveQuantity.setOnClickListener(this);
-
-        bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
-        bProductReport.setOnClickListener(this);
-
-        bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
-        bCostAnalysis.setOnClickListener(this);*/
 
         bLogOut = (Button) findViewById(R.id.bLogOut);
         bLogOut.setOnClickListener(this);
