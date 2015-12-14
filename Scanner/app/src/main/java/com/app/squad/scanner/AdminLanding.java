@@ -52,27 +52,6 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         switch (id) {
-            /*
-            case R.id.action_createproduct:
-                startActivity(new Intent(this, CreateProductScreen.class));
-                break;
-
-            case R.id.action_modifyproduct:
-                startActivity(new Intent(this, ModifyProductScreen.class));
-                break;
-
-            case R.id.action_deleteproduct:
-                startActivity(new Intent(this, DeleteProductScreen.class));
-                break;
-
-            case R.id.action_increasequantity:
-                startActivity(new Intent(this, IncreaseQuantityScreen.class));
-                break;
-
-            case R.id.action_decreasequantity:
-                startActivity(new Intent(this, DecreaseQuantityScreen.class));
-                break;
-            */
 
             case R.id.action_costanalysis:
                 startActivity(new Intent(this, CostAnalysisScreen.class));

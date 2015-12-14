@@ -3,7 +3,6 @@ package com.app.squad.scanner;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -77,10 +76,6 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-                            Intent intent = new Intent(context, AdminLanding.class)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)

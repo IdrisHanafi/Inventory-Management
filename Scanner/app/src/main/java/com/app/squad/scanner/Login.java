@@ -103,43 +103,39 @@ public class Login extends AsyncTask<String, Void, String[]>  {
             Boolean compare = round3(hash);
 
             if (compare) {
-
-
                 // Need to put in the (if firstTime = 1, change password) logic
-
-
                  if (privlvl.matches("1")) {  // this goes direct into the scanning page for a normal user
                     Intent intent = new Intent(context, NormalUserScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      getUserInfo = result[0] + " " + result[1] + " Normal" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
-
-                } else if (privlvl.matches("2")){
+                }
+                 else if (privlvl.matches("2")){
                     // This should activate the manager's landing page
                     Intent intent = new Intent(context, ManagerScreen.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      getUserInfo = result[0] + " " + result[1] + " Manager" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
-                } else if (privlvl.matches("3")){ // this is for the Admin's landing page
+                }
+                 else if (privlvl.matches("3")){ // this is for the Admin's landing page
                     Intent intent = new Intent(context, AdminLanding.class)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      getUserInfo = result[0] + " " + result[1] + " Administrator" + " " + userName;
                      intent.putExtra("userInfo", getUserInfo);
                     context.startActivity(intent);
-                } else {
+                }
+                 else {
                     // User privilege is not set
                     notification("Error", "There is an error with your account.  Please contact an administrator");
                 }
-
             }
             else{
                 // Wrong password notification
                 notification("Wrong User Name/Password", "Incorrect user name or password");
             }
         }
-
     }
 
 
@@ -169,7 +165,6 @@ public class Login extends AsyncTask<String, Void, String[]>  {
         }
         digest.reset();
         return digest.digest(password.getBytes());
-
     }
 
     // converts the binary from getHash() to hex

@@ -26,6 +26,5 @@ public class AddRemoveQuantityScreen extends AppCompatActivity implements View.O
 
         String addQuantity = etAddQuantity.getText().toString();
         String removeQuantity = etRemoveQuantity.getText().toString();
-        //new AddRemoveQuantityActivity(this).execute(addQuantity, removeQuantity);
     }
 }

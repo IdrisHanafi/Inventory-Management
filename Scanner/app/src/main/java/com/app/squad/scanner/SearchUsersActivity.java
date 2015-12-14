@@ -91,7 +91,6 @@ public class SearchUsersActivity extends AsyncTask<String, Void, String[]>{
 
     }
 
-
     // Method for creating pop up notifications.
     protected void notification(String title, String message){
         new AlertDialog.Builder(context)

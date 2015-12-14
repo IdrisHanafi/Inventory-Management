@@ -50,10 +50,8 @@ public class ModifyProductActivity  extends AsyncTask<String, Void, Boolean>  {
         super.onPreExecute();
     }
 
-
     @Override
     protected Boolean doInBackground(String... arg0) {
-
         try{
             this.upcCode = (String)arg0[0];
             this.description = (String)arg0[1];
@@ -89,7 +87,6 @@ public class ModifyProductActivity  extends AsyncTask<String, Void, Boolean>  {
             } else {
                 return false;
             }
-
         }
         catch(Exception e){
             return false;
@@ -109,14 +106,15 @@ public class ModifyProductActivity  extends AsyncTask<String, Void, Boolean>  {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            Intent intent = new Intent(context, ManagerScreen.class)
+                            /*Intent intent = new Intent(context, ManagerScreen.class)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
+                            context.startActivity(intent);*/
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
+        }
+        else {
             new AlertDialog.Builder(context)
                     .setTitle("Uh Oh")
                     .setMessage("There was an Error, Product cannot be modified!")
@@ -130,6 +128,4 @@ public class ModifyProductActivity  extends AsyncTask<String, Void, Boolean>  {
         }
         super.onPostExecute(result);
     }
-
-
 }

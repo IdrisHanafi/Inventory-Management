@@ -51,7 +51,6 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
             bSearchUser.setEnabled(true);
             etChangeUser.setEnabled(true);
         }
-
     }
 
     @Override

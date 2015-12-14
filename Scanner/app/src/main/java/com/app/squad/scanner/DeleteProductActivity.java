@@ -95,9 +95,9 @@ public class DeleteProductActivity  extends AsyncTask<String, Void, Boolean>  {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            Intent intent = new Intent(context, ManagerScreen.class)
+                            /*Intent intent = new Intent(context, ManagerScreen.class)
                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
+                            context.startActivity(intent);*/
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)

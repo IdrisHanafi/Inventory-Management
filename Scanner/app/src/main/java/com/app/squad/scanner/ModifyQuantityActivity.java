@@ -102,15 +102,15 @@ public class ModifyQuantityActivity  extends AsyncTask<String, Void, Boolean>  {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-                            Intent intent = new Intent(context, ManagerScreen.class)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(intent);
+                            //Intent intent = new Intent(context, ManagerScreen.class)
+                            //        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            //context.startActivity(intent);
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else {
+        }
+        else {
             new AlertDialog.Builder(context)
                     .setTitle("Uh Oh")
                     .setMessage("There was an Error, Quantity cannot be modified!")
@@ -122,8 +122,6 @@ public class ModifyQuantityActivity  extends AsyncTask<String, Void, Boolean>  {
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
-        super.onPostExecute(result);
+        //startActivity(new Intent(context, DecreaseQuantityScreen.class));
     }
-
-
 }

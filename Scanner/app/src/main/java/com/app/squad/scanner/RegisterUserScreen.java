@@ -18,7 +18,7 @@ import java.util.Random;
 public class RegisterUserScreen extends AppCompatActivity implements View.OnClickListener {
     Button bRegister;
     EditText etFirstname, etLastname,etUsername,etPassword,etConfirmPassword;
-    CheckBox chkManager;
+    CheckBox chkManager, chkAdmin;
     String newPriv;
 
     @Override
@@ -32,6 +32,7 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
         etPassword = (EditText) findViewById(R.id.etPassword);
         etConfirmPassword = (EditText) findViewById(R.id.etConfirmPassword);
         chkManager = (CheckBox) findViewById(R.id.chkManager);
+        chkAdmin = (CheckBox) findViewById(R.id.chkAdmin);
 
         bRegister = (Button) findViewById(R.id.bRegister);
         bRegister.setOnClickListener(this);
@@ -53,7 +54,9 @@ public class RegisterUserScreen extends AppCompatActivity implements View.OnClic
 
         if (chkManager.isChecked()){
             newPriv = "2";
-        } else{
+        } else if (chkAdmin.isChecked()) {
+            newPriv = "3";
+        } else {
             newPriv = "1";
         }
 
