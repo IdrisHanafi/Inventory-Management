@@ -76,32 +76,6 @@ public class ModifyProductScreen extends AppCompatActivity  implements View.OnCl
         integrator.setWide();  // Wide scanning rectangle, may work better for 1D barcodes
         integrator.setCameraId(0);  // Use a specific camera of the device
         integrator.initiateScan();
-
-        GetProductActivity asyncTask = new GetProductActivity(this, new AsyncResponse() {
-
-            @Override
-            public void processFinish(Object output) {
-                try {
-                    JSONArray products = (JSONArray) output;
-                    for (int i = 0; i < products.length(); i++) {
-                        JSONObject c = products.getJSONObject(i);
-
-                        // Storing each json item in variable
-                        etProductName.setText(c.getString("productName"));
-                        etDescription.setText(c.getString("description"));
-                        etWholesalePrice.setText(c.getString("wholesalePrice"));
-                        etRetailPrice.setText(c.getString("retailPrice"));
-                        etQuantity.setText(c.getString("quantity"));
-                        etLocation.setText(c.getString("location"));
-
-                    }
-                }
-                catch(Exception e){
-                }
-            }
-        });
-        //String newUPCCode = etUPCCode.getText().toString();
-        asyncTask.execute(etUPCCode.getText().toString());
     }
 
     /**
@@ -120,6 +94,31 @@ public class ModifyProductScreen extends AppCompatActivity  implements View.OnCl
             String scanFormat = scanningResult.getFormatName();
 
             etUPCCode.setText(scanContent);
+            GetProductActivity asyncTask = new GetProductActivity(this, new AsyncResponse() {
+
+                @Override
+                public void processFinish(Object output) {
+                    try {
+                        JSONArray products = (JSONArray) output;
+                        for (int i = 0; i < products.length(); i++) {
+                            JSONObject c = products.getJSONObject(i);
+
+                            // Storing each json item in variable
+                            etProductName.setText(c.getString("productName"));
+                            etDescription.setText(c.getString("description"));
+                            etWholesalePrice.setText(c.getString("wholesalePrice"));
+                            etRetailPrice.setText(c.getString("retailPrice"));
+                            etQuantity.setText(c.getString("quantity"));
+                            etLocation.setText(c.getString("location"));
+
+                        }
+                    }
+                    catch(Exception e){
+                    }
+                }
+            });
+            //String newUPCCode = etUPCCode.getText().toString();
+            asyncTask.execute(etUPCCode.getText().toString());
 
         }else{
             Toast toast = Toast.makeText(getApplicationContext(),"No scan data received!", Toast.LENGTH_SHORT);
