@@ -2,6 +2,7 @@ package com.app.squad.scanner;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,6 +21,7 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
     String newSalt;
     String newPassword;
     String userName;
+    String privilege;
     TextView listNames, searchResults;
 
     @Override
@@ -36,15 +38,29 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
         bChangePassword.setOnClickListener(this);
         bSearchUser = (Button) findViewById(R.id.bSearchUser);
         bSearchUser.setOnClickListener(this);
+
+        Intent intent = getIntent();
+        userName = intent.getExtras().getString("userName");
+        privilege = intent.getExtras().getString("privilege");
+        etChangeUser.setText(userName);
+
+        if(privilege.matches("Normal") || privilege.matches("Manager")) {
+            bSearchUser.setEnabled(false);
+            etChangeUser.setEnabled(false);
+        } else {
+            bSearchUser.setEnabled(true);
+            etChangeUser.setEnabled(true);
+        }
+
     }
 
     @Override
     public void onClick(View v) {
-        String hashWord = bin2hex(getHash(newSalt + newPassword));
         this.userName = etChangeUser.getText().toString();
         this.newPassword = etPassword.getText().toString();
         String newConfirm = etConfirmPassword.getText().toString();
         newSalt = createSalt();
+        String hashWord = bin2hex(getHash(newSalt + newPassword));
 
         if (v.getId() == (R.id.bSearchUser) && !userName.matches("")) {
             new SearchUsersActivity(this, listNames).execute(userName);

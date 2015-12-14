@@ -13,6 +13,8 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
     Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
+    String userName;
+    String privilege;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
 
         tName = (TextView) findViewById(R.id.tName);
         tName.setText(userResults[0] + " " + userResults[1]);
+
+        privilege = userResults[2];
+        userName = userResults[3];
 
         bLogOut = (Button) findViewById(R.id.bLogOut);
         bLogOut.setOnClickListener(this);
@@ -85,7 +90,11 @@ public class ManagerScreen extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.bChangePassword:
-                startActivity(new Intent(this, ChangePasswordScreen.class));
+                Intent intent = new Intent(this, ChangePasswordScreen.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("userName", userName);
+                intent.putExtra("privilege", privilege);
+                this.startActivity(intent);
                 break;
         }
     }

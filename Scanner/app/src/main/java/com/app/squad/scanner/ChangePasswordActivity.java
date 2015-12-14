@@ -98,5 +98,6 @@ public class ChangePasswordActivity  extends AsyncTask<String, Void, String[]>  
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
         }
+        super.onPostExecute(result);
     }
 }

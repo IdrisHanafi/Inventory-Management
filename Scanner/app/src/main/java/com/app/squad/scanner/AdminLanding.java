@@ -13,6 +13,8 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
     Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
+    String userName;
+    String privilege;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
 
         tName = (TextView) findViewById(R.id.tName);
         tName.setText(userResults[0] + " " + userResults[1]);
+
+        privilege = userResults[2];
+        userName = userResults[3];
 
         bLogOut = (Button) findViewById(R.id.bLogOut);
         bLogOut.setOnClickListener(this);
@@ -47,6 +52,7 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         switch (id) {
+            /*
             case R.id.action_createproduct:
                 startActivity(new Intent(this, CreateProductScreen.class));
                 break;
@@ -66,6 +72,7 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
             case R.id.action_decreasequantity:
                 startActivity(new Intent(this, DecreaseQuantityScreen.class));
                 break;
+            */
 
             case R.id.action_costanalysis:
                 startActivity(new Intent(this, CostAnalysisScreen.class));
@@ -92,7 +99,11 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.bChangePassword:
-                startActivity(new Intent(this, ChangePasswordScreen.class));
+                Intent intent = new Intent(this, ChangePasswordScreen.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("userName", userName);
+                intent.putExtra("privilege", privilege);
+                this.startActivity(intent);
                 break;
         }
     }
