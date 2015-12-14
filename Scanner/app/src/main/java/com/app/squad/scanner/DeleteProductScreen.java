@@ -88,7 +88,6 @@ public class DeleteProductScreen extends AppCompatActivity  implements View.OnCl
                 }
             }
         });
-        //String newUPCCode = etUPCCode.getText().toString();
         asyncTask.execute(etUPCCode.getText().toString());
     }
 
@@ -99,30 +98,23 @@ public class DeleteProductScreen extends AppCompatActivity  implements View.OnCl
      * @param intent
      */
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-//retrieve scan result
+        //retrieve scan result
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
         if (scanningResult != null) {
-//we have a result
             String scanContent = scanningResult.getContents();
-            String scanFormat = scanningResult.getFormatName();
-
             etUPCCode.setText(scanContent);
-// display it on screen
-//            formatTxt.setText("FORMAT: " + scanFormat);
-//            contentTxt.setText("CONTENT: " + scanContent);
 
-        }else{
+        }
+        else{
             Toast toast = Toast.makeText(getApplicationContext(),"No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
 
-
     @Override
     public void onClick(View view) {
         String newProductName = etProductName.getText().toString();
-        String newDescription = etDescription.getText().toString();
         String newUPCCode = etUPCCode.getText().toString();
 
         if(newProductName.matches("") || newUPCCode.matches("")) {
@@ -138,10 +130,8 @@ public class DeleteProductScreen extends AppCompatActivity  implements View.OnCl
                     .show();
         } else {
 
-            //           Log.i("Everything", newFirstName + newLastName + newUserName + newSalt + hashWord + newPriv);
             new DeleteProductActivity(this).execute(newUPCCode);
 
-        } // end if/else
-
+        }
     }
 }

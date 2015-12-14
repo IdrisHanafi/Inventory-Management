@@ -54,7 +54,6 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
 
     }
 
-
     @Override
     public void onClick(View v) {
         this.userName = etChangeUser.getText().toString();
@@ -78,7 +77,8 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
                     })
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .show();
-        } else if (!newPassword.matches(newConfirm)){
+        }
+        else if (!newPassword.matches(newConfirm)){
             new AlertDialog.Builder(this)
                     .setTitle("Sorry")
                     .setMessage("The Passwords You Entered Do Not Match")
@@ -103,7 +103,6 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
                     .show();
         }
         else {
-
             switch (v.getId()) {
                 case R.id.bChangePassword:
                     new ChangePasswordActivity(this).execute(userName, newSalt, hashWord);
@@ -113,10 +112,7 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
                     this.searchResults.setText("Search Results:");
                     break;
             } // end switch statement
-
         } // end if/else
-
-
     }
 
     private static final String ALLOWED_CHARACTERS ="0123456789!@#$%^&*ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -139,7 +135,6 @@ public class ChangePasswordScreen extends AppCompatActivity implements View.OnCl
         }
         digest.reset();
         return digest.digest(password.getBytes());
-
     }
 
     // converts the binary from getHash() to hex

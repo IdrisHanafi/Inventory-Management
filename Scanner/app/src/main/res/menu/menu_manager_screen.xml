@@ -50,11 +50,6 @@
         app:showAsAction="never">
 
         <menu>
-            <item android:id="@+id/action_listproduct"
-                android:title="@string/action_productlist"
-                android:orderInCategory="100"
-                app:showAsAction="never" />
-
             <item android:id="@+id/action_costanalysis"
                 android:title="@string/action_costanalysis"
                 android:orderInCategory="100"

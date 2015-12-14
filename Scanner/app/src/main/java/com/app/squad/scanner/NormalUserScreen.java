@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class NormalUserScreen extends AppCompatActivity implements View.OnClickListener{
-    Button bAddQuantity, bRemoveQuantity, bChangePassword, bLogOut;
+    Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
     TextView status;
@@ -77,13 +77,6 @@ public class NormalUserScreen extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
 
         switch (v.getId()) {
-            /**case R.id.bAddQuantity:
-                startActivity(new Intent(this, IncreaseQuantityScreen.class));
-                break;
-
-            case R.id.bRemoveQuantity:
-                startActivity(new Intent(this, DecreaseQuantityScreen.class));
-                break;*/
             case R.id.bLogOut:
                 finish();
                 break;

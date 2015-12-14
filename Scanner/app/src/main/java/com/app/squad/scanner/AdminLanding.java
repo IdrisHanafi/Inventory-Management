@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class AdminLanding extends AppCompatActivity implements View.OnClickListener{
-    Button bAddUser, bDeleteUser, bProductReport, bCostAnalysis, bChangePassword, bLogOut;
+    Button bChangePassword, bLogOut;
     String getUserInfo;
     TextView tName;
     String userName;
@@ -30,17 +30,6 @@ public class AdminLanding extends AppCompatActivity implements View.OnClickListe
 
         privilege = userResults[2];
         userName = userResults[3];
-        /**bAddUser = (Button) findViewById(R.id.bAddUser);
-        bAddUser.setOnClickListener(this);
-
-        bDeleteUser = (Button) findViewById(R.id.bDeleteUser);
-        bDeleteUser.setOnClickListener(this);
-
-        bProductReport = (Button) findViewById(R.id.bProductReport);    // Not finished yet
-        bProductReport.setOnClickListener(this);
-
-        bCostAnalysis = (Button) findViewById(R.id.bCostAnalysis);
-        bCostAnalysis.setOnClickListener(this);*/
 
         bLogOut = (Button) findViewById(R.id.bLogOut);
         bLogOut.setOnClickListener(this);

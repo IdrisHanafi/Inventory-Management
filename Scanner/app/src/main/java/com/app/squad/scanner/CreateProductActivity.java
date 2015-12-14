@@ -52,7 +52,6 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
         super.onPreExecute();
     }
 
-
     @Override
     protected Boolean doInBackground(String... arg0) {
 
@@ -136,6 +135,4 @@ public class CreateProductActivity  extends AsyncTask<String, Void, Boolean>  {
         }
         super.onPostExecute(result);
     }
-
-
 }

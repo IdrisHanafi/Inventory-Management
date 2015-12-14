@@ -29,11 +29,7 @@ public class DeleteProductActivity  extends AsyncTask<String, Void, Boolean>  {
 
     private Context context;
 
-    String description;
     String upcCode;
-    String wholesalePrice;
-    String retailPrice;
-    String location;
     String echo;
     private ProgressDialog dialog;
 
@@ -49,7 +45,6 @@ public class DeleteProductActivity  extends AsyncTask<String, Void, Boolean>  {
         dialog.show();
         super.onPreExecute();
     }
-
 
     @Override
     protected Boolean doInBackground(String... arg0) {
@@ -81,7 +76,6 @@ public class DeleteProductActivity  extends AsyncTask<String, Void, Boolean>  {
             } else {
                 return false;
             }
-
         }
         catch(Exception e){
             return false;
@@ -122,6 +116,4 @@ public class DeleteProductActivity  extends AsyncTask<String, Void, Boolean>  {
         }
         super.onPostExecute(result);
     }
-
-
 }

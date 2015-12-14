@@ -1,223 +1,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:padding="10dp"
     android:layout_height="match_parent"
     android:theme="@style/AppTheme"
     android:orientation="vertical"
     android:nestedScrollingEnabled="true"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:weightSum="1">
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="Cost Analysis Report"
+        android:text="Product Reports"
         android:layout_marginBottom="20dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textColor="#000"/>
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="365dp"
-        android:layout_height="321dp"
-        android:stretchColumns="0,1,2,3">
-
-        <TableRow
-            android:id="@+id/trHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#ffee00">
-
-            <TextView
-                android:id="@+id/tvProductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product Name" />
-
-            <TextView
-                android:id="@+id/tvPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quantity Sold" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profit Ratio" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/trRow1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#eeff00">
-
-            <TextView
-                android:id="@+id/tvProduct1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product 1" />
-
-            <TextView
-                android:id="@+id/tvPrice1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$2.00" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="40%" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/trRow2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#eeff00">
-
-            <TextView
-                android:id="@+id/tvProduct2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product 2" />
-
-            <TextView
-                android:id="@+id/tvPrice2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$10.00" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="5" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="20%" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/trRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#eeff00">
-
-            <TextView
-                android:id="@+id/tvProduct3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product 3" />
-
-            <TextView
-                android:id="@+id/tvPrice3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$12.00" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="50%" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/trSRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#eeff00">
-
-            <TextView
-                android:id="@+id/tvProduct4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product 4" />
-
-            <TextView
-                android:id="@+id/tvPrice4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$24.00" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="60%" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/trRow5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#eeff00">
-
-            <TextView
-                android:id="@+id/tvProduct5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product 5" />
-
-            <TextView
-                android:id="@+id/tvPrice5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$15.00" />
-
-            <TextView
-                android:id="@+id/tvQuantitySold5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="15" />
-
-            <TextView
-                android:id="@+id/tvProfitRatio5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30%" />
-
-        </TableRow>
-
-    </TableLayout>
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/webView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1.00"/>
 
     <Button
-        android:id="@+id/bOK"
-        android:text="OK"
+        android:id="@+id/bLogOut"
+        android:text="Log Out"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
